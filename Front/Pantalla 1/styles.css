@@ -1,37 +1,13 @@
-body {
-    font-family: Arial, sans-serif;
+main {
     text-align: center; 
-    padding: 20px;
   }
   
-  header {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 30px;
-  }
-  
-  h1 {
-    max-width: 600px;         
-    margin: 0 auto 40px auto;  
-  }
-  
-  .botones {
-    display: flex;
-    justify-content: center; 
-    gap: 20px;              
-  }
-  
+  /* Estilo de los botones */
   button {
-    padding: 15px 30px;  
-    font-size: 18px;     
-    border: none;
-    border-radius: 8px;  
-    background-color: #4CAF50; 
-    color: white;
-    cursor: pointer;
-    transition: 0.2s;
-  }
-  
-  button:hover {
-    background-color: #45a049;
+    font-size: 20px;   
+    padding: 15px 30px; 
+    margin: 10px;       
+    background-color: #80d0e9;
+    color: white;    
+    border: none;      
   }
