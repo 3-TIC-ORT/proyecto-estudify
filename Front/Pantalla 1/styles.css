@@ -2,8 +2,8 @@
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  background-color: #aacfdd;
-  color: black;
+  background-color: #bcdce7;
+  color: navy;
 }
 
 header {
@@ -11,6 +11,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 12px 20px;
+  color: navy;
 }
 
 header div {
@@ -30,10 +31,3 @@ header button {
   font-family: 'Montserrat', sans-serif;
 }
 
-main {
-  padding: 20px;
-}
-main h1 {
-  font-size: 24px;
-  font-weight: normal;
-}
