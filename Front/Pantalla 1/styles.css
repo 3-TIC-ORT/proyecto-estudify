@@ -2,8 +2,8 @@
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  background-color: #bcdce7;
-  color: navy;
+  background-color: #f0f8ff; 
+  color: #bcdce7; 
 }
 
 header {
@@ -11,11 +11,11 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 12px 20px;
-  color: navy;
+  color: #bcdce7; 
 }
 
 header div {
-  font-size: 20px;
+  font-size: 40px;
   font-weight: bold;
 }
 
@@ -29,5 +29,12 @@ header button {
   border-radius: 4px;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
+}
+
+main h1{
+  font-size: 70px;
+}
+main h2 {
+  margin-left: 20px; 
 }
 
