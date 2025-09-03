@@ -26,18 +26,21 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.foto-profesor {
+  width: 100%;       
+  height: 100%;      
+  object-fit: cover; 
+}
+
+
+
 .profesor:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
+  
 
-.foto-profesor {
-  width: 250px;
-  height: 250px;
-  border-radius: 20px;
-  object-fit: cover;
-  display: block;
-}
+
 
 .nombre-profesor {
   position: absolute;
