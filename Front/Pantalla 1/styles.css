@@ -40,3 +40,34 @@ main h3 {
   font-size: 30px;
 }
 
+
+.imagenes-p1 {
+  display: flex;
+  justify-content: flex-end;
+  gap: 50px;
+  height: 100vh;
+}
+
+
+.imagenes-p1 img {
+  width: 180px;
+  height: 700px;
+  object-fit: cover;
+  border-radius: 100px;
+}
+
+
+.img1 {
+  align-self: flex-start; 
+  margin-bottom: 300px;
+}
+
+.img2 {
+  align-self: center; 
+  margin-top: 100px;
+}
+
+.img3 {
+  align-self: flex-end;
+  margin-bottom: 400px;
+}
