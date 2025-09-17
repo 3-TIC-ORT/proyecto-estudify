@@ -1,6 +1,6 @@
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #f0f8ff; 
+    background-color: #DDF6FF; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +9,7 @@ body {
   }
   
   .materia-container {
-    color: #729fad; 
+    color: #61f5c1;; 
     background: white;
     padding: 30px;
     border: 2px solid #ccc;
@@ -34,7 +34,7 @@ body {
   
   .materia-container button {
     padding: 12px 25px;
-    background-color: #729fad; 
+    background-color: #61f5c1;; 
     color: white;
     border: none;
     border-radius: 8px;
@@ -44,6 +44,6 @@ body {
   }
   
   .materia-container button:hover {
-    background-color: #729fad; 
+    background-color: #61f5c1;; 
   }
   
