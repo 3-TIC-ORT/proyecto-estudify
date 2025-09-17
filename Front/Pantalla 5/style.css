@@ -5,7 +5,7 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  background-color: #f0f8ff; 
+  background-color: #DDF6FF;  
 }
 
 .galeria-profesores {
@@ -45,7 +45,7 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: #729fad; 
+  background-color: #61f5c1;; 
   color: #ffff;
   text-align: center;
   padding: 10px 0;
