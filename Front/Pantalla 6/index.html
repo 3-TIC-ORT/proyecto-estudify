@@ -3,43 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalle Profesor</title>
-  <link rel="styles.css" href="styles.css">
+  <title>Perfil del Profesor</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Sección superior -->
-  <section class="profesor-header">
-    <div class="profesor-info">
-      <h1>Profesor Juan Pérez</h1>
-      <div class="estrellas">⭐⭐⭐⭐☆</div>
-      <p class="descripcion">Profesor de Matemática con 5 años de experiencia. Explico claro y con paciencia.</p>
-      <p class="precio">💰 $1500/hora</p>
-    </div>
-    <div class="profesor-foto">
-      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profesor Juan Pérez">
-    </div>
-  </section>
-
-  <!-- Sección reseñas -->
-  <section class="profesor-reseñas">
-    <h2>Reseñas</h2>
-
-    <div class="reseña">
-      <p>⭐⭐⭐⭐⭐ - “Excelente profesor, aprendí un montón.”</p>
-    </div>
-    <div class="reseña">
-      <p>⭐⭐⭐⭐☆ - “Muy claro, aunque a veces va un poco rápido.”</p>
+  <div class="perfil-profesor">
+    <!-- Columna izquierda -->
+    <div class="profesor-card">
+      <div class="profesor-foto">
+        <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="Foto del profesor">
+      </div>
+      <div class="profesor-info">
+        <h1>Juan Pérez</h1>
+        <div class="estrellas">⭐⭐⭐⭐☆</div>
+        <p class="descripcion">Profesor de Matemática con más de 10 años de experiencia ayudando a estudiantes a aprobar y mejorar su confianza.</p>
+        <p class="precio">$2500 / hora</p>
+      </div>
     </div>
 
-    <!-- Escribir nueva reseña -->
-    <div class="nueva-reseña">
-      <textarea placeholder="Escribí tu reseña..."></textarea>
-      <button>Enviar</button>
+    <!-- Columna derecha -->
+    <div class="profesor-reseñas">
+      <h2>Reseñas de estudiantes</h2>
+
+      <div class="reseña">
+        ⭐⭐⭐⭐⭐  
+        <p>“Excelente profesor, explica muy claro y con paciencia.”</p>
+      </div>
+
+      <div class="reseña">
+        ⭐⭐⭐⭐☆  
+        <p>“Muy bueno, pero a veces va rápido con los temas.”</p>
+      </div>
+
+      <div class="reseña">
+        ⭐⭐⭐⭐☆  
+        <p>“Me explico bastante bien"<p>
+      </div>
+
+      <div class="reseña">
+        ⭐⭐⭐⭐⭐ 
+        <p>“Gracias a el aprobé. Un genio"<p>
+      </div>
+
+      <div class="reseña">
+        ⭐☆☆☆☆  
+        <p>“Va demasiado rapido, no se le entiende nada"<p>
+      </div>
+
+      <div class="nueva-reseña">
+        <h3>Escribir tu reseña</h3>
+        <textarea rows="4" placeholder="Escribe aquí tu experiencia..."></textarea>
+        <button>Enviar reseña</button>
+      </div>
     </div>
-  </section>
+  </div>
 
 </body>
 </html>
 
-  
