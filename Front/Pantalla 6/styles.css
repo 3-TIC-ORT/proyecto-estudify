@@ -2,7 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  color: #0097a7;
 }
 
 body {
@@ -17,7 +18,7 @@ body {
 
 
 .profesor-card {
-  background-color: #61f5c1;
+  background-color: #ebfaff;
   color: white;
   padding: 20px;
   border-radius: 15px;
@@ -48,22 +49,23 @@ body {
 }
 
 .descripcion {
-  font-size: 16px;
+  font-size: 30px;
   margin-bottom: 10px;
+  color: #0097a7;
 }
 
 .precio {
   font-weight: bold;
   font-size: 18px;
-  color: yellow;
+  color: #0097a7;
 }
 
-/* Columna derecha */
 .profesor-reseñas {
-  background-color: #b2ebf2;
-  flex: 2; /* ocupa más espacio */
+  background-color: #ebfaff;
+  flex: 2;
   padding: 20px;
   border-radius: 15px;
+  color: #0097a7;
 }
 
 .profesor-reseñas h2 {
@@ -75,12 +77,15 @@ body {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
+  color: #0097a7;
 }
 
 .nueva-reseña {
   margin-top: 20px;
+  color: white;
   display: flex;
   flex-direction: column;
+  color: #0097a7;
 }
 
 .nueva-reseña textarea {
@@ -89,15 +94,25 @@ body {
   border-radius: 10px;
   border: 1px solid #ccc;
   margin-bottom: 10px;
+  color: white;
 }
 
 .nueva-reseña button {
   background: #0097a7;
-  color: white;
+  color: black;
   border: none;
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
 }
 
-  
+.btn-mensaje {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: white;
+  color: #0097a7;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
