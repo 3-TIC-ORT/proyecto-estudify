@@ -11,3 +11,16 @@ let nuevoJson = JSON.stringify(usuarios, null, 2);
 
 fs.writeFileSync("usuarios.json", nuevoJson);
 
+//log in
+
+let login = fs.readFileSync ("usuarios.json", "utf-8")
+
+let persona = { nombre: "Luu", contra: "1234" };
+
+let jsonPersona = JSON.stringify(persona);
+
+console.log(jsonPersona); 
+
+let legible = JSON.stringify(persona, null, 2);
+
+console.log(legible);
