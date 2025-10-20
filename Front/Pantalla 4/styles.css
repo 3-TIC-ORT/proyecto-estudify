@@ -56,3 +56,49 @@ body {
 .materia-container button:hover {
   background-color: #4fd3a8;
 }
+
+/* --- HEADER FIJO ARRIBA --- */
+.top-bar {
+  position: fixed;          /* lo deja siempre arriba */
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;  /* podés cambiar el color si querés */
+  padding: 10px 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* sombrita suave */
+  z-index: 1000;            /* lo pone por encima de todo */
+}
+
+/* --- LOGO --- */
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #6ef2c0;
+  margin: 0;
+}
+
+/* --- CONTENEDOR DE ICONOS --- */
+.iconos-header {
+  display: flex;
+  gap: 15px;
+}
+
+/* --- ICONOS --- */
+.icono {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+/* --- Para que el contenido no quede tapado por el header --- */
+body {
+  margin: 0;
+  padding-top: 70px; /* deja espacio debajo del header */
+  font-family: 'Montserrat', sans-serif;
+}
+
+
