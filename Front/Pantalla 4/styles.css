@@ -2,20 +2,48 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: #DDF6FF; 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
 }
 
-.logo {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 22px;
-  color: #61f5c1;
-  font-weight: bold;
-  font-style: italic;
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;                 
+  justify-content: space-between; 
+  align-items: center;           
+  padding: 20px 30px;
+  background-color: transparent;
+}
+
+.top-bar .logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #4fd3a8;                   
+  margin: 0;                      
+}
+
+.iconos-header {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.icono {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.icono:hover {
+  transform: scale(1.1);
 }
 
 .materia-container {
@@ -27,6 +55,7 @@ body {
   text-align: center;
   width: 300px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-top: 80px;
 }
 
 .materia-container h2 {
@@ -40,6 +69,7 @@ body {
   margin-bottom: 20px;
   border-radius: 8px;
   font-size: 16px;
+  border: 2px solid #ccc;
 }
 
 .materia-container button {
@@ -57,48 +87,6 @@ body {
   background-color: #4fd3a8;
 }
 
-/* --- HEADER FIJO ARRIBA --- */
-.top-bar {
-  position: fixed;          /* lo deja siempre arriba */
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;  /* podés cambiar el color si querés */
-  padding: 10px 30px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* sombrita suave */
-  z-index: 1000;            /* lo pone por encima de todo */
-}
 
-/* --- LOGO --- */
-.logo {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #6ef2c0;
-  margin: 0;
-}
-
-/* --- CONTENEDOR DE ICONOS --- */
-.iconos-header {
-  display: flex;
-  gap: 15px;
-}
-
-/* --- ICONOS --- */
-.icono {
-  width: 28px;
-  height: 28px;
-  cursor: pointer;
-}
-
-/* --- Para que el contenido no quede tapado por el header --- */
-body {
-  margin: 0;
-  padding-top: 70px; /* deja espacio debajo del header */
-  font-family: 'Montserrat', sans-serif;
-}
 
 
