@@ -1,10 +1,10 @@
 const formRegistro = document.getElementById('formRegistro')
 
-const inputNyA = document.getElementById('Nombre y Apellido')
+const inputNyA = document.getElementById('nombreApellido')
 const inputEmail = document.getElementById('email')
 const inputPassword = document.getElementById('password')
-const inputDate = document.getElementById('Fecha de nacimiento')
-const inputTel = document.getElementById('Número de telefono')
+const inputDate = document.getElementById('fechaNacimiento')
+const inputTel = document.getElementById('nuumeroTelefono')
 const inputSubmit = document.getElementById('comenzar')
 
 formRegistro.addEventListener('submit', (e) => {
