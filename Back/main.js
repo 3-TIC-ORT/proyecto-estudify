@@ -1,9 +1,5 @@
 import fs from "fs";
 import { subscribeGETEvent, subscribePOSTEvent, startServer } from 'soquetic'
-import { registrarUsuario } from './Usuarios/usuarios.js'
-import { iniciarSesion } from './Usuarios/iniciarSesion.js';
-
-startServer(3000);
 
 // sign up
 
@@ -19,6 +15,8 @@ usuarios.push({"usuario": "Luu", "contra": "1234"});
 let nuevoJson = JSON.stringify(usuarios, null, 2);
 
 fs.writeFileSync("usuarios.json", nuevoJson);
+
+return {"success": true}
 }
 
 // log in
@@ -42,3 +40,4 @@ function iniciarUsuario (data){
   
     return { exito: true, mensaje: "Inicio de sesión exitoso" };
 }
+startServer(3000);
