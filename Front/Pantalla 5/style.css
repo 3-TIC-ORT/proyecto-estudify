@@ -54,3 +54,40 @@ body {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px; 
 }
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;                 
+  justify-content: space-between; 
+  align-items: center;           
+  padding: 20px 30px;
+  background-color: transparent;
+}
+
+.top-bar .logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #4fd3a8;                   
+  margin: 0;                      
+}
+
+.iconos-header {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.icono {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.icono:hover {
+  transform: scale(1.1);
+}
