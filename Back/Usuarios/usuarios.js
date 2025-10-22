@@ -71,4 +71,4 @@ export function iniciarUsuario(data){
             console.error("Error al iniciar sesión:", error);
             return { success: false, info: "Error interno del servidor" };
         } 
-    }
+    } }
