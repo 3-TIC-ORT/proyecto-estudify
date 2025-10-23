@@ -5,12 +5,12 @@ import { subscribeGETEvent, subscribePOSTEvent, startServer } from 'soquetic'
 
 subscribePOSTEvent('registrarUsuario', registrarUsuario);
 
-function registrarUsuario(){
+function registrarUsuario(datos){
 let data = fs.readFileSync("usuarios.json", "utf-8");
 
 let usuarios = JSON.parse(data);
 
-usuarios.push({"usuario": "Luu", "contra": "1234"});
+usuarios.push({"usuario": datos.nombre, "contra": datos.contraseña, "reseñas":datos.reseñas, "rol":datos.rol,"teléfono":datos.teléfono, "grado":datos.grado, "Materias":datos.Materias,});
 
 let nuevoJson = JSON.stringify(usuarios, null, 2);
 

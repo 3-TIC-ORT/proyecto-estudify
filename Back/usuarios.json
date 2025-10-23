@@ -98,5 +98,23 @@
   {
     "usuario": "Luu",
     "contra": "1234"
+  },
+  {
+    "usuario": "Luu",
+    "contra": "1234",
+    "reseñas": "5 estrellas",
+    "rol": "Profesora",
+    "teléfono": "11 1234-5678",
+    "grado": "Primer ciclo",
+    "Materias": "Matemática"
+  },
+  {
+    "usuario": "Luu",
+    "contra": "1234",
+    "reseñas": "5 estrellas",
+    "rol": "Profesora",
+    "teléfono": "11 1234-5678",
+    "grado": "Primer ciclo",
+    "Materias": "Matemática"
   }
 ]
