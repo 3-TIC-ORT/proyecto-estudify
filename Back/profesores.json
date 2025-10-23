@@ -1,0 +1,93 @@
+[
+    {
+      "id": 1,
+      "nombre": "Juan Perez",
+      "materia": "Matemática",
+      "foto": "https://randomuser.me/api/portraits/men/10.jpg",
+      "descripcion": "Profesor con amplia experiencia en clases particulares de matemática. Le encanta enseñar con ejemplos de la vida real.",
+      "calificacion": 4.8,
+      "reseñas": [
+        {
+          "usuario": "Camila Z.",
+          "comentario": "Gracias a él entendí álgebra y probabilidad. Muy paciente."
+        },
+        {
+          "usuario": "Sofía L.",
+          "comentario": "Hace las clases muy claras y dinámicas."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nombre": "Alejandro Gomez",
+      "materia": "Historia",
+      "foto": "https://randomuser.me/api/portraits/men/32.jpg",
+      "descripcion": "Apasionado por la historia mundial. Conecta los hechos del pasado con los temas actuales de forma muy interesante.",
+      "calificacion": 4.6,
+      "reseñas": [
+        {
+          "usuario": "Tomás F.",
+          "comentario": "Explica la historia de una manera que nunca te aburrís."
+        },
+        {
+          "usuario": "Martina P.",
+          "comentario": "Excelente profe, hace que todo sea fácil de entender."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nombre": "Lucia Gonzales",
+      "materia": "Lengua y Literatura",
+      "foto": "https://randomuser.me/api/portraits/women/11.jpg",
+      "descripcion": "Profesora apasionada por la literatura argentina y la escritura creativa. Sus clases son participativas y divertidas.",
+      "calificacion": 4.9,
+      "reseñas": [
+        {
+          "usuario": "Milena T.",
+          "comentario": "Siempre trae textos interesantes y nos hace pensar."
+        },
+        {
+          "usuario": "Julián M.",
+          "comentario": "Muy buena profe, me ayudó con mis análisis literarios."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "nombre": "Melina Morales",
+      "materia": "Inglés",
+      "foto": "https://randomuser.me/api/portraits/women/21.jpg",
+      "descripcion": "Docente bilingüe con enfoque en conversación y pronunciación. Le encanta enseñar a través de juegos y canciones.",
+      "calificacion": 4.7,
+      "reseñas": [
+        {
+          "usuario": "Agustín C.",
+          "comentario": "Sus clases son súper divertidas, aprendés sin darte cuenta."
+        },
+        {
+          "usuario": "Valentina R.",
+          "comentario": "Explica genial, mejoré mucho mi inglés oral."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "nombre": "Tomas Fernandez",
+      "materia": "Ciencias Naturales",
+      "foto": "https://randomuser.me/api/portraits/men/14.jpg",
+      "descripcion": "Profesor de ciencias naturales con un enfoque práctico. Le gusta mostrar experimentos simples en sus clases.",
+      "calificacion": 4.5,
+      "reseñas": [
+        {
+          "usuario": "Luca M.",
+          "comentario": "Explica de una forma muy clara y divertida."
+        },
+        {
+          "usuario": "Julieta P.",
+          "comentario": "Muy copado, se nota que ama lo que enseña."
+        }
+      ]
+    }
+  ]
+  

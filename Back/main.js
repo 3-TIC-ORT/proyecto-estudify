@@ -39,6 +39,18 @@ function iniciarUsuario (data){
     }
   
     return { exito: true, mensaje: "Inicio de sesión exitoso" };
+  
 }
+
+subscribeGETEvent("profesores", obtenerProfesores);
+
+function obtenerProfesores() {
+  let data = fs.readFileSync("profesores.json", "utf-8");
+  let profesores = JSON.parse(data);
+  return profesores;
+}
+
 startServer(3001);
+
+
 
