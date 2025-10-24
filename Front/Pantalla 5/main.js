@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const galeria = document.querySelector(".galeria-profesores");
   
+connect2Server();
+
     try {
       const respuesta = await fetch("http://localhost:3002/profesores");
       const profesores = await respuesta.json();
