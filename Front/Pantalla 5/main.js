@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const galeria = document.querySelector(".galeria-profesores");
   
     try {
-      const respuesta = await fetch("http://localhost:3001/profesores");
+      const respuesta = await fetch("http://localhost:3002/profesores");
       const profesores = await respuesta.json();
   
       galeria.innerHTML = profesores

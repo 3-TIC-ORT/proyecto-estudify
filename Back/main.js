@@ -1,6 +1,18 @@
 import fs from "fs";
 import { subscribeGETEvent, subscribePOSTEvent, startServer } from 'soquetic'
 
+subscribeGETEvent("cors", () => {
+  return { mensaje: "CORS activo" };
+});
+
+// Parchear todas las respuestas
+process.on("request", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+});
+
+
 // sign up
 
 subscribePOSTEvent('registrarUsuario', registrarUsuario);
@@ -50,7 +62,8 @@ function obtenerProfesores() {
   return profesores;
 }
 
-startServer(3001);
+
+startServer(3002);
 
 
 
