@@ -20,7 +20,7 @@
     {
       "id": 2,
       "nombre": "Alejandro Gomez",
-      "materia": "Historia",
+      "materia": "matematica",
       "foto": "https://randomuser.me/api/portraits/men/32.jpg",
       "descripcion": "Apasionado por la historia mundial. Conecta los hechos del pasado con los temas actuales de forma muy interesante.",
       "calificacion": 4.6,
@@ -38,7 +38,7 @@
     {
       "id": 3,
       "nombre": "Lucia Gonzales",
-      "materia": "Lengua y Literatura",
+      "materia": "Lengua",
       "foto": "https://randomuser.me/api/portraits/women/11.jpg",
       "descripcion": "Profesora apasionada por la literatura argentina y la escritura creativa. Sus clases son participativas y divertidas.",
       "calificacion": 4.9,
@@ -74,7 +74,7 @@
     {
       "id": 5,
       "nombre": "Tomas Fernandez",
-      "materia": "Ciencias Naturales",
+      "materia": "Matematica",
       "foto": "https://randomuser.me/api/portraits/men/14.jpg",
       "descripcion": "Profesor de ciencias naturales con un enfoque práctico. Le gusta mostrar experimentos simples en sus clases.",
       "calificacion": 4.5,

@@ -42,7 +42,7 @@ function iniciarUsuario (data){
   
     let usuarioEncontrado = usuarios.find(u => u.usuario === data.usuario);
   
-    if (usuarioEncontrado) {
+    if (!usuarioEncontrado) {
       return { exito: false, mensaje: "Usuario no encontrado" };
     }
   
@@ -53,6 +53,8 @@ function iniciarUsuario (data){
     return { exito: true, mensaje: "Inicio de sesión exitoso" };
   
 }
+
+// profesores
 
 subscribeGETEvent("profesores", obtenerProfesores);
 
