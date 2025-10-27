@@ -22,7 +22,7 @@ let data = fs.readFileSync("usuarios.json", "utf-8");
 
 let usuarios = JSON.parse(data);
 
-usuarios.push({"usuario": datos.nombre, "contra": datos.contraseña, "reseñas":datos.reseñas, "rol":datos.rol,"teléfono":datos.teléfono, "grado":datos.grado, "Materias":datos.Materias,});
+usuarios.push({"nombreYapellido": datos.nombre, "contraseña": datos.contraseña, "mail":datos.mail, "numeroDeTelefono":datos.teléfono, "nacimiento":datos.nacimiento, "Materias":datos.Materias,});
 
 let nuevoJson = JSON.stringify(usuarios, null, 2);
 
@@ -64,6 +64,50 @@ function obtenerProfesores() {
   return profesores;
 }
 
+// PROFESORES POR MATERIA
+subscribeGETEvent("profesoresPorMateria", obtenerProfesoresPorMateria);
+
+function obtenerProfesoresPorMateria(datos) {
+  const {materia} = datos; // el front manda algo como { materia: "Matemática" }
+  let data = fs.readFileSync("profesores.json", "utf-8");
+  let profesores = JSON.parse(data);
+
+  if (!materia) {
+    return { error: "Debe indicar una materia" };
+  }
+
+  const filtrados = profesores.filter(p => p.materia === materia);
+  return filtrados.length > 0 ? filtrados : { mensaje: "No hay profesores para esa materia" };
+}
+
+// MATERIAS DISPONIBLES
+subscribeGETEvent("materias", obtenerMaterias);
+
+function obtenerMaterias() {
+  let data = fs.readFileSync("profesores.json", "utf-8");
+  let profesores = JSON.parse(data);
+  // Saco todas las materias sin repetir
+  let materias = [...new Set(profesores.map(p => p.materia))];
+  return materias;
+}
+
+//reseñas
+
+export function getResenas(req, res) {
+    const data = fs.readFileSync('./Back/Resenas/resenas.json', 'utf-8');
+    const resenas = JSON.parse(data);
+    res.json(resenas);
+}
+
+export function agregarResena(req, res) {
+    const nueva = req.body; // estudiante, puntuacion, comentario 
+    const data = fs.readFileSync('./Back/Resenas/resenas.json', 'utf-8');
+    const resenas = JSON.parse(data);
+    nueva.id = resenas.length + 1;
+    resenas.push(nueva);
+    fs.writeFileSync('./Back/Resenas/resenas.json', JSON.stringify(resenas, null, 2));
+    res.json({ ok: true, resena: nueva });
+}
 
 startServer(3002);
 

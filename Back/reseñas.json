@@ -1,0 +1,46 @@
+[
+    {
+      "id": 1,
+      "Estudiante": "Alumno1",
+      "puntuacion": 5,
+      "comentario": "Excelente profesor, explica muy claro y con paciencia."
+    }
+  ]
+
+[
+    {
+        "id": 2,
+        "estudiante": "Alumno2",
+        "puntuacion": 3,
+        "comentario": "Tiene buen material, pero su forma de explicar no es muy clara"
+      }
+]
+  
+  
+
+  [
+    {
+      "id": 3,
+      "estudiante": "Alumno3",
+      "puntuacion": 5,
+      "comentario": "Muy buena clase, mucha paciencia y buen vocabulario."
+    }
+  ]
+
+  [
+    {
+      "id": 4,
+      "estudiante": "Alumno4",
+      "puntuacion": 1,
+      "comentario": "Mala explicación, poco material de estudio"
+    }
+  ]
+  
+  [
+  {
+    "id": 5,
+    "estudiante": "Alumno5",
+    "puntuacion": 4,
+    "comentario": "Tiene buen material y muy buena explicación, poca paciencia"
+  }
+  ]
