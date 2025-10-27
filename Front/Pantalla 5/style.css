@@ -6,7 +6,6 @@ body {
   min-height: 100vh;
   margin: 0;
   background-color: #DDF6FF;  
-  flex-direction: column;
 }
 
 .galeria-profesores {
@@ -14,7 +13,7 @@ body {
   flex-wrap: wrap;
   gap: 25px; 
   justify-content: center;
-  padding: 120px 20px 40px; /* agregado para que no tape el header */
+  padding: 20px;
 }
 
 .profesor {
@@ -25,19 +24,23 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden; 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
 }
 
 .foto-profesor {
   width: 100%;       
-  height: 100%;      
-  object-fit: cover;
+  height: 100%;   
+  object-fit: cover;   
 }
+
+
 
 .profesor:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
+  
+
+
 
 .nombre-profesor {
   position: absolute;
@@ -51,45 +54,5 @@ body {
   font-weight: bold;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px; 
-}
-
-/* --- Header (barra superior) --- */
-.top-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;                 
-  justify-content: space-between; 
-  align-items: center;           
-  padding: 20px 30px;
-  background-color: white; /* cambio: para que no sea transparente */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-
-.top-bar .logo {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 24px;
-  color: #4fd3a8;                   
-  margin: 0;                      
-}
-
-.iconos-header {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
-.icono {
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.icono:hover {
-  transform: scale(1.1);
 }
 

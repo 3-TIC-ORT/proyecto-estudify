@@ -3,74 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil del Profesor</title>
+  <title>Perfil del Profesor - Studify</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
 </head>
+
 <body>
   <header class="top-bar">
     <h1 class="logo">Studify</h1>
-  
     <div class="iconos-header">
-      <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Usuario" class="icono usuario" title="Perfil">
-      <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Mensajes" class="icono mensajes" title="Mensajes">
+      <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" class="icono" title="Perfil">
+      <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" class="icono" title="Mensajes">
     </div>
   </header>
 
-
-  <div class="perfil-profesor">
-    <div class="profesor-card">
-      <div class="profesor-foto">
-        <img src="https://media.istockphoto.com/id/1153206644/es/foto/hombre-ejecutivo-en-traje-de-moda-mirando-a-la-c%C3%A1mara.jpg?s=612x612&w=0&k=20&c=eNttZIZF3qjdZvjqeLqorvUyeT-wYyw_rt5BMrj06VM="class = "foto-profesor">
-      </div>
-      <div class="profesor-info">
-        <h1>Juan Pérez</h1>
-        <div class="estrellas">⭐⭐⭐⭐☆</div>
-        <p class="descripcion">Profesor de Matemática con más de 10 años de experiencia ayudando a estudiantes a aprobar y mejorar su confianza.</p>
-        <p class="precio">$2500 / hora</p>
-        <button class="btn-mensaje">Enviar un mensaje</button>
-      </div>
-    </div>
-
-    <div class="profesor-reseñas">
-      <h2>Reseñas de estudiantes</h2>
-
-      <div class="reseña">
-        ⭐⭐⭐⭐⭐  
-        <p>“Excelente profesor, explica muy claro y con paciencia.”</p>
+  <main class="perfil-profesor">
+    <section class="info-principal">
+      <div class="card-profesor">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD5CmHG3iBzib-L_id28mQouqDljrF69c0qA&s" alt="Isabella Lopez">
+        <h2>Isabella Lopez</h2>
+        <p class="rating">⭐ 4.5</p>
+        <p class="precio">1500/h</p>
+        <button class="btn-contactar">CONTACTAR</button>
       </div>
 
-      <div class="reseña">
-        ⭐⭐⭐⭐☆  
-        <p>“Muy bueno, pero a veces va rápido con los temas.”</p>
+      <div class="descripcion">
+        <p>Profesora con más de 7 años de experiencia en niveles primario, secundario y universitario. Especializada en álgebra, geometría, trigonometría, análisis matemático y estadística.</p>
+        <p>Ofrece clases personalizadas para que cada alumno comprenda la lógica de los ejercicios y gane confianza en la materia.</p>
       </div>
+    </section>
 
-      <div class="reseña">
-        ⭐⭐⭐⭐☆  
-        <p>“Me explico bastante bien"<p>
-      </div>
+    <section class="reseñas">
+      <h3>Reseñas de estudiantes</h3>
 
-      <div class="reseña">
-        ⭐⭐⭐⭐⭐ 
-        <p>“Gracias a el aprobé. Un genio"<p>
-      </div>
-
-      <div class="reseña">
-        ⭐☆☆☆☆  
-        <p>“Va demasiado rapido, no se le entiende nada"<p>
-      </div>
+      <div class="reseña">⭐⭐⭐⭐⭐ “Excelente profesora, explica muy claro y con paciencia.”</div>
+      <div class="reseña">⭐⭐⭐⭐☆ “Muy buena, pero a veces va rápido con los temas.”</div>
+      <div class="reseña">⭐⭐⭐⭐☆ “Me explicó bastante bien.”</div>
+      <div class="reseña">⭐⭐⭐⭐⭐ “Gracias a ella aprobé. Una genia.”</div>
+      <div class="reseña">⭐☆☆☆☆ “Va demasiado rápido, no se le entiende nada.”</div>
 
       <div class="nueva-reseña">
-        <h3>Escribir tu reseña</h3>
-        <textarea rows="4" placeholder="Escribe aquí tu experiencia..."></textarea>
-        <button>Enviar reseña</button>
+        <h4>Escribe tu reseña</h4>
+        <textarea placeholder="Escribe aquí tu experiencia..."></textarea>
+        <button class="btn-enviar">ENVIAR</button>
       </div>
-    </div>
-  </div>
-  <script src="main.js"></script>
-
+    </section>
+  </main>
 </body>
 </html>
 

@@ -56,6 +56,7 @@ function iniciarUsuario (data){
 
 // profesores
 
+<<<<<<< HEAD
 subscribeGETEvent("profesores", obtenerProfesores);
 
 function obtenerProfesores() {
@@ -111,5 +112,11 @@ export function agregarResena(req, res) {
 
 startServer(3002);
 
+=======
+subscribeGETEvent("info", () => {
+  const data = fs.readFileSync("./profesores.json", "utf-8");
+  return JSON.parse(data);
+});
+>>>>>>> b2336db0c786cf686bee8a07751bf9afbb4a1f10
 
 

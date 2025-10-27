@@ -1,121 +1,141 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-  color: #0097a7;
-}
 
 body {
-  background: #f4f4f4;
-  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #DDF6FF;
+  margin: 0;
+  padding-top: 90px;
+  color: #333;
 }
+
 
 .perfil-profesor {
-  display: flex;
-  gap: 20px;
-}
-
-
-.profesor-card {
-  background-color: #ebfaff;
-  color: white;
-  padding: 20px;
-  border-radius: 15px;
-  flex: 1;
+  max-width: 1000px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
+  gap: 30px;
+}
+.info-principal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #eafaff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.profesor-foto img {
-  width: 180px;
-  height: 180px;
+.card-profesor {
+  background: white;
+  border-radius: 20px;
+  text-align: center;
+  padding: 20px;
+  width: 240px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card-profesor img {
+  width: 100%;
+  height: 240px;
   object-fit: cover;
   border-radius: 15px;
-  margin-bottom: 15px;
 }
 
-.profesor-info h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
+.card-profesor h2 {
+  margin: 15px 0 5px;
+  color: #333;
 }
 
-.estrellas {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.descripcion {
-  font-size: 30px;
-  margin-bottom: 10px;
-  color: #0097a7;
+.rating {
+  color: #f7b400;
+  font-weight: bold;
+  margin: 5px 0;
 }
 
 .precio {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.btn-contactar {
+  background-color: #61f5c1;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
   font-weight: bold;
-  font-size: 18px;
-  color: #0097a7;
 }
 
-.profesor-reseñas {
-  background-color: #ebfaff;
-  flex: 2;
-  padding: 20px;
+.btn-contactar:hover {
+  background-color: #4ad0a3;
+}
+
+/* ===== DESCRIPCIÓN ===== */
+.descripcion {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+.reseñas {
+  background-color: #eafaff;
+  padding: 25px 30px;
   border-radius: 15px;
-  color: #0097a7;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.profesor-reseñas h2 {
+.reseñas h3 {
+  color: #333;
   margin-bottom: 15px;
 }
 
 .reseña {
   background: white;
-  padding: 10px;
   border-radius: 10px;
+  padding: 10px 15px;
   margin-bottom: 10px;
-  color: #0097a7;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 0.95rem;
 }
 
 .nueva-reseña {
   margin-top: 20px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  color: #0097a7;
 }
 
-.nueva-reseña textarea {
-  padding: 10px;
-  resize: none;
+.nueva-reseña h4 {
+  margin-bottom: 10px;
+}
+
+textarea {
+  width: 100%;
+  height: 80px;
   border-radius: 10px;
   border: 1px solid #ccc;
-  margin-bottom: 10px;
-  color: white;
-}
-
-.nueva-reseña button {
-  background: #0097a7;
-  color: black;
-  border: none;
   padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
+  resize: none;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.btn-mensaje {
-  margin-top: 15px;
-  padding: 10px 15px;
-  background-color: white;
-  color: #0097a7;
+.btn-enviar {
+  background-color: #61f5c1;
+  color: white;
   border: none;
+  padding: 10px 25px;
   border-radius: 10px;
-  font-size: 16px;
   cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
 }
+
+.btn-enviar:hover {
+  background-color: #4ad0a3;
+}
+
+
 .top-bar {
   position: fixed;
   top: 0;
