@@ -56,16 +56,9 @@ function iniciarUsuario (data){
 
 // profesores
 
-subscribeGETEvent("profesores", obtenerProfesores);
-
-function obtenerProfesores() {
-  let data = fs.readFileSync("profesores.json", "utf-8");
-  let profesores = JSON.parse(data);
-  return profesores;
-}
-
-
-startServer(3002);
-
+subscribeGETEvent("info", () => {
+  const data = fs.readFileSync("./profesores.json", "utf-8");
+  return JSON.parse(data);
+});
 
 
