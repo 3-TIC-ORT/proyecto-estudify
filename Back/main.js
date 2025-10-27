@@ -92,46 +92,43 @@ function obtenerMaterias() {
 }
 
 //reseñas
+subscribeGETEvent("resenas", () => {
+  const data = fs.readFileSync("./Back/Resenas/resenas.json", "utf-8");
+  return JSON.parse(data);
+});
 
-export function getResenas(req, res) {
-    const data = fs.readFileSync('./Back/Resenas/resenas.json', 'utf-8');
-    const resenas = JSON.parse(data);
-    res.json(resenas);
-}
-
-export function agregarResena(req, res) {
-    const nueva = req.body; // estudiante, puntuacion, comentario 
-    const data = fs.readFileSync('./Back/Resenas/resenas.json', 'utf-8');
-    const resenas = JSON.parse(data);
-    nueva.id = resenas.length + 1;
-    resenas.push(nueva);
-    fs.writeFileSync('./Back/Resenas/resenas.json', JSON.stringify(resenas, null, 2));
-    res.json({ ok: true, resena: nueva });
-}
+subscribePOSTEvent("agregarResena", (nueva) => {
+  const data = fs.readFileSync("./Back/Resenas/resenas.json", "utf-8");
+  const resenas = JSON.parse(data);
+  nueva.id = resenas.length + 1;
+  resenas.push(nueva);
+  fs.writeFileSync("./Back/Resenas/resenas.json", JSON.stringify(resenas, null, 2));
+  return { ok: true, resena: nueva };
+});
 
 //perfil usuario
 import path from 'path';
-
 const filePath = path.resolve('./Back/Usuarios/usuarios.json');
 
-// Función para actualizar usuario
-export function actualizarUsuario(id, nuevaData) {
+// actualizar perfil (versión Soquetic)
+subscribePOSTEvent("actualizarPerfil", (data) => {
+  const { id, ...nuevaData } = data;
+
   let usuarios = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-
   const usuario = usuarios.find(u => u.id === id);
-  if (!usuario) return { error: 'Usuario no encontrado' };
 
-  // Actualizar campos permitidos
+  if (!usuario) return { error: "Usuario no encontrado" };
+
+  // Actualizar campos
   usuario.nombre = nuevaData.nombre || usuario.nombre;
   usuario.telefono = nuevaData.telefono || usuario.telefono;
   usuario.foto = nuevaData.foto || usuario.foto;
-  if (nuevaData.password) usuario.password = nuevaData.password; // opcional
+  if (nuevaData.password) usuario.password = nuevaData.password;
 
-  // Guardar cambios
+  // guardar cambios
   fs.writeFileSync(filePath, JSON.stringify(usuarios, null, 2), 'utf-8');
-
-  return usuario;
-}
+  return { ok: true, usuario };
+});
 
 // Endpoint ejemplo (usando Express)
 import express from 'express';

@@ -1,74 +1,72 @@
-//registrarse 
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
-import fs, { writeFileSync } from 'fs'
-import path from 'path';
-import { fileURLToPath } from 'url';
-
+// Configuración de rutas absolutas (necesario en módulos ES)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const relativePath = './Back/Usuarios/usuarios.json';
+// Ruta hacia el archivo donde se guardan los usuarios
+const relativePath = "./Back/Usuarios/usuarios.json";
 const absolutePath = path.resolve(__dirname, relativePath);
 
+// Función para registrar un usuario nuevo
 export function registrarUsuario(data) {
-    let usuarios = []
     try {
+        // Leer los usuarios existentes
+        let usuarios = [];
         if (fs.existsSync(absolutePath)) {
-            usuarios = JSON.parse(fs.readFileSync(absolutePath, 'utf-8'))
-        }
-        else {
-            writeFileSync(absolutePath, "")
+            const contenido = fs.readFileSync(absolutePath, "utf-8");
+            usuarios = contenido ? JSON.parse(contenido) : [];
         }
 
-        fs.writeFileSync(absolutePath, JSON.stringify(usuarios, null, 2))
-        return { success: true, info: "Usuario registrado con exitro" }
-    }
-    catch {
-        return { success: false, info: "Error al registrar usuario" }
-    }
+        // Verificar si el usuario ya existe
+        const existe = usuarios.some(u => u.usuario === data.usuario);
+        if (existe) {
+            return { success: false, info: "El usuario ya existe" };
+        }
 
+        // Agregar el nuevo usuario
+        usuarios.push({
+            usuario: data.usuario,
+            contra: data.contra,
+            telefono: data.telefono || "",
+            foto: data.foto || "",
+        });
+
+        // Guardar el archivo actualizado
+        fs.writeFileSync(absolutePath, JSON.stringify(usuarios, null, 2));
+
+        return { success: true, info: "Usuario registrado con éxito" };
+    } catch (error) {
+        console.error("Error al registrar usuario:", error);
+        return { success: false, info: "Error al registrar usuario" };
+    }
 }
 
-fs.writeFileSync('./Usuarios/usuarios.json')
-fs.readFileSync(absolutePath, 'utf-8');
-fs.existsSync
+// función para iniciar sesión
+export function iniciarSesion(data) {
+    try {
+        if (!fs.existsSync(absolutePath)) {
+            return { success: false, info: "No hay usuarios registrados" };
+        }
 
-//log in
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+        const contenido = fs.readFileSync(absolutePath, "utf-8");
+        const usuarios = contenido ? JSON.parse(contenido) : [];
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+        const usuarioEncontrado = usuarios.find(u => u.usuario === data.usuario);
 
-const relativePath = './Back/Usuarios/usuarios.json';
-const absolutePath = path.resolve(__dirname, relativePath);
+        if (!usuarioEncontrado) {
+            return { success: false, info: "Usuario no encontrado" };
+        }
 
-export function iniciarUsuario(data){
+        if (usuarioEncontrado.contra !== data.contra) {
+            return { success: false, info: "Contraseña incorrecta" };
+        }
 
-    export function iniciarSesion(data) {
-        try {
-            if (!fs.existsSync(absolutePath)) {
-                return { success: false, info: "No hay usuarios registrados" };
-            }
-    
-            const contenido = fs.readFileSync(absolutePath, 'utf-8');
-            const usuarios = JSON.parse(contenido || "[]");
-    
-            const usuarioEncontrado = usuarios.find(u => u.usuario === data.usuario);
-    
-            if (!usuarioEncontrado) {
-                return { success: false, info: "Usuario no encontrado" };
-            }
-    
-            if (usuarioEncontrado.contra !== data.contra) {
-                return { success: false, info: "Contraseña incorrecta" };
-            }
-    
-            return { success: true, info: "Inicio de sesión exitoso" };
-        
-        } catch (error) {
-            console.error("Error al iniciar sesión:", error);
-            return { success: false, info: "Error interno del servidor" };
-        } 
-    } }
+        return { success: true, info: "Inicio de sesión exitoso", usuario: usuarioEncontrado };
+    } catch (error) {
+        console.error("Error al iniciar sesión:", error);
+        return { success: false, info: "Error interno del servidor" };
+    }
+}
