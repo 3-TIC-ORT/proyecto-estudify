@@ -56,7 +56,6 @@ function iniciarUsuario (data){
 
 // profesores
 
-<<<<<<< HEAD
 subscribeGETEvent("profesores", obtenerProfesores);
 
 function obtenerProfesores() {
@@ -110,13 +109,41 @@ export function agregarResena(req, res) {
     res.json({ ok: true, resena: nueva });
 }
 
-startServer(3002);
+//perfil usuario
+import path from 'path';
 
-=======
-subscribeGETEvent("info", () => {
-  const data = fs.readFileSync("./profesores.json", "utf-8");
-  return JSON.parse(data);
+const filePath = path.resolve('./Back/Usuarios/usuarios.json');
+
+// Función para actualizar usuario
+export function actualizarUsuario(id, nuevaData) {
+  let usuarios = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+
+  const usuario = usuarios.find(u => u.id === id);
+  if (!usuario) return { error: 'Usuario no encontrado' };
+
+  // Actualizar campos permitidos
+  usuario.nombre = nuevaData.nombre || usuario.nombre;
+  usuario.telefono = nuevaData.telefono || usuario.telefono;
+  usuario.foto = nuevaData.foto || usuario.foto;
+  if (nuevaData.password) usuario.password = nuevaData.password; // opcional
+
+  // Guardar cambios
+  fs.writeFileSync(filePath, JSON.stringify(usuarios, null, 2), 'utf-8');
+
+  return usuario;
+}
+
+// Endpoint ejemplo (usando Express)
+import express from 'express';
+const app = express();
+app.use(express.json());
+
+app.put('/perfil/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const datos = req.body;
+  const resultado = actualizarUsuario(id, datos);
+  res.json(resultado);
 });
->>>>>>> b2336db0c786cf686bee8a07751bf9afbb4a1f10
 
+startServer(3002);
 
