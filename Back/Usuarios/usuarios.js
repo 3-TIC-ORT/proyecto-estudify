@@ -29,7 +29,8 @@ export function registrarUsuario(data) {
         // Agregar el nuevo usuario
         usuarios.push({
             usuario: data.usuario,
-            contra: data.contra,
+            mail: data.mail,
+            contraseña: data.contraseña,
             telefono: data.telefono || "",
             foto: data.foto || "",
         });
@@ -60,7 +61,7 @@ export function iniciarSesion(data) {
             return { success: false, info: "Usuario no encontrado" };
         }
 
-        if (usuarioEncontrado.contra !== data.contra) {
+        if (usuarioEncontrado.contraseña !== data.contraseña) {
             return { success: false, info: "Contraseña incorrecta" };
         }
 
