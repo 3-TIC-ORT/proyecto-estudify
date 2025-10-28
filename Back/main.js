@@ -6,11 +6,7 @@ subscribeGETEvent("cors", () => {
 });
 
 // Parchear todas las respuestas
-process.on("request", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-});
+subscribeGETEvent("cors", () => ({ mensaje: "CORS activo" }));
 
 
 // sign up
@@ -22,7 +18,7 @@ let data = fs.readFileSync("usuarios.json", "utf-8");
 
 let usuarios = JSON.parse(data);
 
-usuarios.push({"nombreYapellido": datos.nombre, "contraseña": datos.contraseña, "mail":datos.mail, "numeroDeTelefono":datos.teléfono, "nacimiento":datos.nacimiento, "Materias":datos.Materias,});
+usuarios.push({"usuario": datos.usuario, "contraseña": datos.contraseña, "mail":datos.mail, "numeroDeTelefono":datos.teléfono, "nacimiento":datos.nacimiento, "Materias":datos.Materias,});
 
 let nuevoJson = JSON.stringify(usuarios, null, 2);
 
@@ -92,23 +88,23 @@ function obtenerMaterias() {
 }
 
 //reseñas
-subscribeGETEvent("resenas", () => {
-  const data = fs.readFileSync("./Back/Resenas/resenas.json", "utf-8");
+subscribeGETEvent("reseñas", () => {
+  const data = fs.readFileSync("reseñas.json", "utf-8");
   return JSON.parse(data);
 });
 
 subscribePOSTEvent("agregarResena", (nueva) => {
-  const data = fs.readFileSync("./Back/Resenas/resenas.json", "utf-8");
+  const data = fs.readFileSync("reseñas.json", "utf-8");
   const resenas = JSON.parse(data);
   nueva.id = resenas.length + 1;
   resenas.push(nueva);
-  fs.writeFileSync("./Back/Resenas/resenas.json", JSON.stringify(resenas, null, 2));
+  fs.writeFileSync("reseñas.json", JSON.stringify(resenas, null, 2));
   return { ok: true, resena: nueva };
 });
 
 //perfil usuario
 import path from 'path';
-const filePath = path.resolve('./Back/Usuarios/usuarios.json');
+const filePath = path.resolve('./usuarios.json');
 
 // actualizar perfil (versión Soquetic)
 subscribePOSTEvent("actualizarPerfil", (data) => {
@@ -138,7 +134,7 @@ app.use(express.json());
 app.put('/perfil/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const datos = req.body;
-  const resultado = actualizarUsuario(id, datos);
+  const resultado = actualizarPerfil(id, datos);
   res.json(resultado);
 });
 
