@@ -99,7 +99,63 @@ subscribePOSTEvent("agregarResena", (nueva) => {
   nueva.id = resenas.length + 1;
   resenas.push(nueva);
   fs.writeFileSync("reseñas.json", JSON.stringify(resenas, null, 2));
-  return { ok: true, resena: nueva };
+  return { ok: true, reseña: nueva };
+});
+
+//reseñas , usuarios pueden agregar 
+
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { subscribePOSTEvent, subscribeGETEvent } from "soquetic";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const resenasPath = path.resolve(__dirname, './resenas.json');
+
+// Asegurarnos de que el archivo exista
+if (!fs.existsSync(resenasPath)) {
+    fs.writeFileSync(resenasPath, JSON.stringify([]));
+}
+
+// Endpoint para agregar reseña
+subscribePOSTEvent("agregarResena", async (data) => {
+    try {
+        const { usuarioId, profesorId, puntuacion, comentario } = JSON.parse(data);
+
+        if (!usuarioId || !profesorId || !puntuacion || !comentario) {
+            return { success: false, message: "Faltan datos" };
+        }
+
+        const resenas = JSON.parse(fs.readFileSync(resenasPath, "utf-8"));
+
+        const nuevaResena = {
+            id: resenas.length + 1,
+            usuarioId,
+            profesorId,
+            puntuacion,
+            comentario
+        };
+
+        resenas.push(nuevaResena);
+        fs.writeFileSync(resenasPath, JSON.stringify(resenas, null, 2));
+
+        return { success: true, message: "Reseña agregada", resena: nuevaResena };
+    } catch (err) {
+        return { success: false, message: err.message };
+    }
+});
+
+// Endpoint para obtener reseñas de un profesor
+subscribeGETEvent("resenas/:profesorId", async (params) => {
+    try {
+        const profesorId = params.profesorId;
+        const resenas = JSON.parse(fs.readFileSync(resenasPath, "utf-8"));
+        const resenasProfesor = resenas.filter(r => r.profesorId == profesorId);
+        return { success: true, resenas: resenasProfesor };
+    } catch (err) {
+        return { success: false, message: err.message };
+    }
 });
 
 //perfil usuario
