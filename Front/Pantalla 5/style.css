@@ -53,3 +53,168 @@ body {
   border-bottom-right-radius: 20px; 
 }
 
+.perfil-profesor {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.info-principal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #eafaff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card-profesor {
+  background: white;
+  border-radius: 20px;
+  text-align: center;
+  padding: 20px;
+  width: 240px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card-profesor img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.card-profesor h2 {
+  margin: 15px 0 5px;
+  color: #333;
+}
+
+.rating {
+  color: #f7b400;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.precio {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.btn-contactar {
+  background-color: #61f5c1;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-contactar:hover {
+  background-color: #4ad0a3;
+}
+
+/* ===== DESCRIPCIÓN ===== */
+.descripcion {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+.reseñas {
+  background-color: #eafaff;
+  padding: 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.reseñas h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.reseña {
+  background: white;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 0.95rem;
+}
+
+.nueva-reseña {
+  margin-top: 20px;
+}
+
+.nueva-reseña h4 {
+  margin-bottom: 10px;
+}
+
+textarea {
+  width: 100%;
+  height: 80px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  resize: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-enviar {
+  background-color: #61f5c1;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.btn-enviar:hover {
+  background-color: #4ad0a3;
+}
+
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;                 
+  justify-content: space-between; 
+  align-items: center;           
+  padding: 20px 30px;
+  background-color: transparent;
+}
+
+.top-bar .logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #4fd3a8;                   
+  margin: 0;                      
+}
+
+.iconos-header {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.icono {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.icono:hover {
+  transform: scale(1.1);
+}
+
