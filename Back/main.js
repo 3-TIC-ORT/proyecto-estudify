@@ -5,7 +5,7 @@ subscribeGETEvent("cors", () => {
   return { mensaje: "CORS activo" };
 });
 
-// Parchear todas las respuestas
+// parchear todas las respuestas
 subscribeGETEvent("cors", () => ({ mensaje: "CORS activo" }));
 
 
