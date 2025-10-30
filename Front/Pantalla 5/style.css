@@ -1,17 +1,12 @@
-/* ========================================================= */
-/* --- 1. CONFIGURACIÓN BASE Y VISIBILIDAD (CRÍTICO) --- */
-/* ========================================================= */
-
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: #DDF6FF;
   margin: 0;
-  padding-top: 90px; /* Espacio para el top-bar fijo */
+  padding-top: 90px;
   color: #333;
   min-height: 100vh;
 }
 
-/* Reglas ESENCIALES para que el JS oculte/muestre */
 .pantalla-oculta {
   display: none !important;
 }
@@ -21,21 +16,16 @@ body {
   width: 100%;
 }
 
-/* Contenedores principales de las secciones */
 #pantalla5, #pantalla6 {
-  padding: 20px 0; /* Ajuste de padding para centrar mejor */
+  padding: 20px 0;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* ========================================================= */
-/* --- 2. ESTILOS PANTALLA 5 (GALERÍA) --- */
-/* ========================================================= */
-
 .galeria-profesores {
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 25px; 
   justify-content: center;
   padding: 20px;
 }
@@ -46,15 +36,16 @@ body {
   height: 250px;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  overflow: hidden; 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .foto-profesor {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
 }
 
 .profesor:hover {
@@ -67,35 +58,13 @@ body {
   bottom: 0;
   width: 100%;
   background-color: #61f5c1;
-  color: #333; /* Texto oscuro para visibilidad */
+  color: #333; 
   text-align: center;
   padding: 10px 0;
   font-size: 1.1em;
   font-weight: bold;
 }
 
-/* ========================================================= */
-/* --- 3. ESTILOS PANTALLA 6 (DETALLE) --- */
-/* ========================================================= */
-
-/* Contenedor principal de los elementos de la Pantalla 6 */
-.detalle-profesor {
-  /* Agrupamos los estilos de .perfil-profesor y el fondo */
-  max-width: 1000px;
-  margin: 20px auto;
-  background-color: white; /* Fondo para el área del detalle */
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.perfil-profesor {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-/* Estilo para el botón de volver */
 #btnVolver {
   background: none;
   border: 1px solid #ccc;
@@ -104,18 +73,25 @@ body {
   cursor: pointer;
   border-radius: 5px;
   font-weight: bold;
-  display: block; /* Asegura que el botón ocupe su propio espacio */
+  display: inline-block;
 }
 
+.detalle-profesor {
+  max-width: 1000px;
+  margin: 20px auto;
+  background-color: white; 
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
 .info-principal {
-  /* Contenedor que alinea la tarjeta de la foto y la descripción */
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
-  justify-content: flex-start; /* Alinea al inicio */
+  justify-content: flex-start;
   align-items: flex-start;
-  background-color: #eafaff;
+  background-color: #eafaff; 
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -167,18 +143,19 @@ body {
   background-color: #4ad0a3;
 }
 
-/* ===== DESCRIPCIÓN ===== */
 .descripcion {
-  flex: 1; /* Ocupa el espacio restante al lado de la tarjeta */
+  flex: 1; 
   font-size: 1rem;
   line-height: 1.5;
   color: #333;
   padding-top: 20px;
 }
 
+
 .reseñas {
-  background-color: #eafaff;
   padding: 25px 30px;
+  margin-top: 30px;
+  background-color: #eafaff; 
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
@@ -188,30 +165,55 @@ body {
   margin-bottom: 15px;
 }
 
-/* Estilo para las reseñas individuales */
 #detalle-reseñas {
-  list-style: none; /* Elimina viñetas predeterminadas */
+  list-style: none; 
   padding: 0;
 }
 
 #detalle-reseñas li {
   background: white;
   border-radius: 10px;
-  padding: 10px 15px;
+  padding: 15px;
   margin-bottom: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   font-size: 0.95rem;
 }
 
 .nueva-reseña {
-  margin-top: 20px;
+  margin-top: 30px;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
 }
 
-/* ... (Otros estilos de formulario de reseña que tenías) ... */
+textarea {
+  width: 100%;
+  height: 80px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  resize: none;
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box; 
+}
 
+.btn-enviar {
+  background-color: #61f5c1;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  float: right;
+}
+
+.btn-enviar:hover {
+  background-color: #4ad0a3;
+}
 
 /* ========================================================= */
-/* --- 4. TOP BAR (HEADER) --- */
+/* --- 4. TOP BAR (HEADER FIJO) --- */
 /* ========================================================= */
 
 .top-bar {
@@ -219,11 +221,11 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
   padding: 20px 30px;
-  background-color: white; /* Añadido fondo para que el header no sea transparente */
+  background-color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   z-index: 100;
 }

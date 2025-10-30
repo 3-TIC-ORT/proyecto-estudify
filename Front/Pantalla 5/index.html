@@ -1,81 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estudify - Galería de Profesores</title>
-  
-  <link rel="stylesheet" href="style.css">
-  
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudify - Galería de Profesores</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <section id="pantalla5" class="pantalla-visible">
-    <h1>Conoce a Nuestros Profesores</h1>
-    <div class="galeria-profesores">
-
-      <div class="profesor" data-id-profesor="1">
-        <img src="https://media.istockphoto.com/id/1153206644/es/foto/hombre-ejecutivo-en-traje-de-moda-mirando-a-la-c%C3%A1mara.jpg?s=612x612&w=0&k=20&c=eNttZIZF3qjdZvjqeLqorvUyeT-wYyw_rt5BMrj06VM=" class="foto-profesor" alt="Profesor Juan Perez">
-        <div class="nombre-profesor">Juan Perez</div>
-      </div>
-
-      <div class="profesor" data-id-profesor="2">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIavu-4J8Vb3fTVkPhAxFwqu8VdX4QvgOseQ&s" class="foto-profesor" alt="Profesor Alejandro Gomez">
-        <div class="nombre-profesor">Alejandro Gomez</div>
-      </div>
-
-      <div class="profesor" data-id-profesor="3">
-        <img src="https://img.freepik.com/foto-gratis/retrato-hombre-gafas_329181-12127.jpg?semt=ais_hybrid&w=740&q=80" class="foto-profesor" alt="Profesor Julian Gonzalez">
-        <div class="nombre-profesor">Julian Gonzalez</div>
-      </div>
-
-      <div class="profesor" data-id-profesor="4">
-        <img src="https://media.istockphoto.com/id/956564854/es/foto/cerca-de-retrato-de-mujer-bonita-encantadora-alegre-en-camisa-gafas-encontrar-una-idea.jpg?s=612x612&w=0&k=20&c=xiXIkiGtmcKW51u3qXuiaBP0SCOwCUl0qge0rFsE0JI=" class="foto-profesor" alt="Profesora Martina Rodriguez">
-        <div class="nombre-profesor">Martina Rodriguez</div>
-      </div>
-
-      <div class="profesor" data-id-profesor="5">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD5CmHG3iBzib-L_id28mQouqDljrF69c0qA&s" class="foto-profesor" alt="Profesora Isabella Lopez">
-        <div class="nombre-profesor">Isabella Lopez</div>
-      </div>
-
-      <div class="profesor" data-id-profesor="6">
-        <img src="https://www.clarin.com/2023/05/04/xICdTNtB__720x0__1.jpg" class="foto-profesor" alt="Profesora Juana Sanchez">
-        <div class="nombre-profesor">Juana Sanchez</div>
-      </div>
-
-      <div class="profesor" data-id-profesor="7">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPVk6k5xuCFxJE5MRDlmfrdeHCuGH1qYSMBp8_PwkvfwK1KWcQrg4z9WAIDNWM84Ox-a0&usqp=CAU" class="foto-profesor" alt="Profesor Pedro Dominguez">
-        <div class="nombre-profesor">Pedro Dominguez</div>
-      </div>
-
-      <div class="profesor" data-id-profesor="8">
-        <img src="https://media.vogue.mx/photos/5c0702987ce4111b8fae953f/2:3/w_2560%2Cc_limit/amal_clooney_1346.jpg" class="foto-profesor" alt="Profesora Julia Romero">
-        <div class="nombre-profesor">Julia Romero</div>
-      </div>
-
+    <div class="top-bar">
+        <p class="logo">Studify</p> 
+        <div class="iconos-header">
+            <img src="placeholder_user_icon.png" class="icono" alt="Usuario">
+            <img src="placeholder_mail_icon.png" class="icono" alt="Mensajes">
+        </div>
     </div>
-  </section>
 
-  <section id="pantalla6" class="pantalla-oculta">
-      
-    <button id="btnVolver"> &lt;-- Volver a la lista</button>
-    
-    <div class="detalle-profesor">
-      <img id="detalle-img" src="" alt="Foto del profesor">
-      <h2 id="detalle-nombre"></h2>
-      
-      <p id="detalle-info"></p>
-      
-      <h3>Reseñas de Alumnos</h3>
-      <ul id="detalle-reseñas">
-      </ul>
-    </div>
-  </section>
+    <section id="pantalla5" class="pantalla-visible">
+        <h1>Conoce a Nuestros Profesores</h1>
+        <div class="galeria-profesores">
 
-  <script src="main.js"></script>
+            <div class="profesor" data-id-profesor="1">
+                <img src="https://media.istockphoto.com/id/1153206644/es/foto/hombre-ejecutivo-en-traje-de-moda-mirando-a-la-c%C3%A1mara.jpg?s=612x612&w=0&k=20&c=eNttZIZF3qjdZvjqeLqorvUyeT-wYyw_rt5BMrj06VM=" class="foto-profesor" alt="Profesor Juan Perez">
+                <div class="nombre-profesor">Juan Perez</div>
+            </div>
+
+            <div class="profesor" data-id-profesor="2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIavu-4J8Vb3fTVkPhAxFwqu8VdX4QvgOseQ&s" class="foto-profesor" alt="Profesor Alejandro Gomez">
+                <div class="nombre-profesor">Alejandro Gomez</div>
+            </div>
+            
+            <div class="profesor" data-id-profesor="3">
+                <img src="https://images.unsplash.com/photo-1542839958-36034176d6ec?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGV4ZWN1dGl2ZXxlbnwwfHwwfHx8MA%3D%3D" class="foto-profesor" alt="Profesor Julian Gonzalez">
+                <div class="nombre-profesor">Julian Gonzalez</div>
+            </div>
+
+            <div class="profesor" data-id-profesor="4">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d29tYW4lMjBleGVjdXRpdmV8ZW58MHx8MHx8fDA%3D" class="foto-profesor" alt="Profesor Martina Rodriguez">
+                <div class="nombre-profesor">Martina Rodriguez</div>
+            </div>
+            
+            <div class="profesor" data-id-profesor="5">
+                <img src="https://images.unsplash.com/photo-1552058544-f2b084320679?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d29tYW4lMjBleGVjdXRpdmV8ZW58MHx8MHx8fDA%3D" class="foto-profesor" alt="Profesor Isabella Lopez">
+                <div class="nombre-profesor">Isabella Lopez</div>
+            </div>
+
+            <div class="profesor" data-id-profesor="6">
+                <img src="https://images.unsplash.com/photo-1573497491763-ba3027b14d9a?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHdvbWFuJTIwZXhlY3V0aXZlfGVufDB8fDB8fHww" class="foto-profesor" alt="Profesor Juana Sanchez">
+                <div class="nombre-profesor">Juana Sanchez</div>
+            </div>
+            
+            <div class="profesor" data-id-profesor="7">
+                <img src="https://images.unsplash.com/photo-1628109968853-29f958a36c1e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fG1hbiUyMGV4ZWN1dGl2ZXxlbnwwfHwwfHx8MA%3D%3D" class="foto-profesor" alt="Profesor Carlos Ruiz">
+                <div class="nombre-profesor">Carlos Ruiz</div>
+            </div>
+            
+            <div class="profesor" data-id-profesor="8">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a812d8a5732?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHdvbWFuJTIwZXhlY3V0aXZlfGVufDB8fDB8fHww" class="foto-profesor" alt="Profesor Sofía Torres">
+                <div class="nombre-profesor">Sofía Torres</div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="pantalla6" class="pantalla-oculta">
+        
+        <div class="detalle-profesor">
+            <button id="btnVolver"> &lt;-- Volver a la lista</button>
+            
+            <div class="info-principal">
+                
+                <div class="card-profesor">
+                    <img id="detalle-img" src="" alt="Foto del profesor">
+                    
+                    <h2 id="detalle-nombre"></h2> 
+                    <div class="rating">⭐️ 4.5</div> 
+                    <div class="precio" id="detalle-precio">1500/h</div>
+                    <button class="btn-contactar">CONTACTAR</button>
+                </div>
+                
+                <div class="descripcion">
+                    <p id="detalle-info"></p>
+                </div>
+            </div>
+
+            <div class="reseñas">
+                <h3>Reseñas de Alumnos</h3>
+                
+                <ul id="detalle-reseñas"></ul>
+                
+                <div class="nueva-reseña">
+                    <h4>Deja tu reseña:</h4>
+                    <textarea placeholder="Escribe tu comentario aquí..."></textarea>
+                    <button class="btn-enviar">Enviar Reseña</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="main.js"></script> 
 
 </body>
 </html>
