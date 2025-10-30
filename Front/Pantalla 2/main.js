@@ -7,6 +7,7 @@ connect2Server();
 formLogin.addEventListener('submit', (e) => {
   e.preventDefault();
 
+
   const datosLogin = {
     email: inputEmail.value,
     password: inputPassword.value
@@ -17,9 +18,9 @@ formLogin.addEventListener('submit', (e) => {
   postEvent('loginUsuario', datosLogin, (res) => {
     console.log('Respuesta del servidor:', res);
 
-    if (res.success === true) {
+    if (res.exito === true) {
       alert('Inicio de sesión exitoso');
-      window.location.href = "../Pantalla 4/index.html"; 
+      window.location.href = "../Pantalla 4/index.html";
     } else {
       alert('Correo o contraseña incorrectos');
     }

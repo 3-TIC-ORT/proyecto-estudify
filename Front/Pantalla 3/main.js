@@ -23,10 +23,10 @@ formRegistro.addEventListener('submit', (e) => {
   postEvent('registrarUsuario', usuarioGuardar, (res) => {
     if (res.success == true) {
       window.location.href = "../Pantalla 4/index.html"
+      alert("siguiente")
     }
     else {
       alert('Error al registrar usuario');
     }
   })
 })
-
