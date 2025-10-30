@@ -29,7 +29,7 @@ return {"success": true}
 
 // log in
 
-subscribePOSTEvent('iniciarUsuario', iniciarUsuario);
+subscribePOSTEvent('loginUsuario', iniciarUsuario);
 
 function iniciarUsuario (data){
 
@@ -60,7 +60,7 @@ function obtenerProfesores() {
   return profesores;
 }
 
-// PROFESORES POR MATERIA
+// profe pir materia
 subscribeGETEvent("profesoresPorMateria", obtenerProfesoresPorMateria);
 
 function obtenerProfesoresPorMateria(datos) {
@@ -76,7 +76,7 @@ function obtenerProfesoresPorMateria(datos) {
   return filtrados.length > 0 ? filtrados : { mensaje: "No hay profesores para esa materia" };
 }
 
-// MATERIAS DISPONIBLES
+// materias 
 subscribeGETEvent("materias", obtenerMaterias);
 
 function obtenerMaterias() {
@@ -104,21 +104,19 @@ subscribePOSTEvent("agregarResena", (nueva) => {
 
 //reseñas , usuarios pueden agregar 
 
-import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { subscribePOSTEvent, subscribeGETEvent } from "soquetic";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const resenasPath = path.resolve(__dirname, './resenas.json');
 
-// Asegurarnos de que el archivo exista
+// si el archivo existe
 if (!fs.existsSync(resenasPath)) {
     fs.writeFileSync(resenasPath, JSON.stringify([]));
 }
 
-// Endpoint para agregar reseña
+// endpoint para agregar reseña
 subscribePOSTEvent("agregarResena", async (data) => {
     try {
         const { usuarioId, profesorId, puntuacion, comentario } = JSON.parse(data);
@@ -146,7 +144,7 @@ subscribePOSTEvent("agregarResena", async (data) => {
     }
 });
 
-// Endpoint para obtener reseñas de un profesor
+// endpoint para obtener reseñas de un profesor
 subscribeGETEvent("resenas/:profesorId", async (params) => {
     try {
         const profesorId = params.profesorId;
@@ -159,10 +157,9 @@ subscribeGETEvent("resenas/:profesorId", async (params) => {
 });
 
 //perfil usuario
-import path from 'path';
 const filePath = path.resolve('./usuarios.json');
 
-// actualizar perfil (versión Soquetic)
+// actualizar perfil (versión soquetic)
 subscribePOSTEvent("actualizarPerfil", (data) => {
   const { id, ...nuevaData } = data;
 
@@ -171,7 +168,7 @@ subscribePOSTEvent("actualizarPerfil", (data) => {
 
   if (!usuario) return { error: "Usuario no encontrado" };
 
-  // Actualizar campos
+  // actualizar perfil
   usuario.nombre = nuevaData.nombre || usuario.nombre;
   usuario.telefono = nuevaData.telefono || usuario.telefono;
   usuario.foto = nuevaData.foto || usuario.foto;
@@ -182,7 +179,7 @@ subscribePOSTEvent("actualizarPerfil", (data) => {
   return { ok: true, usuario };
 });
 
-// Endpoint ejemplo (usando Express)
+// endpoint ejemplo (usando Express)
 import express from 'express';
 const app = express();
 app.use(express.json());
@@ -194,5 +191,4 @@ app.put('/perfil/:id', (req, res) => {
   res.json(resultado);
 });
 
-startServer(3002);
-
+startServer(3000);

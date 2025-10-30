@@ -116,5 +116,35 @@
     "teléfono": "11 1234-5678",
     "grado": "Primer ciclo",
     "Materias": "Matemática"
+  },
+  {
+    "contraseña": "123456",
+    "mail": "luu@gmail.com",
+    "nacimiento": "2025-10-06"
+  },
+  {
+    "contraseña": "1242353464",
+    "mail": "luu@gmail.com",
+    "nacimiento": "2025-10-10"
+  },
+  {
+    "contraseña": "9884758937",
+    "mail": "luu@gmail.com",
+    "nacimiento": "2025-10-05"
+  },
+  {
+    "contraseña": "jhgghffhgf",
+    "mail": "luu@gmail.com",
+    "nacimiento": "2025-10-08"
+  },
+  {
+    "contraseña": "dfsdfsdfsdfs",
+    "mail": "luu@gmail.com",
+    "nacimiento": "2025-09-30"
+  },
+  {
+    "contraseña": "kluu27",
+    "mail": "luu27@gmail.com",
+    "nacimiento": "2025-10-06"
   }
 ]
