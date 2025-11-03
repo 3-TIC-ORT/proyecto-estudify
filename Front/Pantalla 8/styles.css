@@ -93,3 +93,49 @@ body {
   .icono:hover {
     transform: scale(1.1);
   }
+  
+.historial-chat {
+  height: 400px; 
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column; 
+}
+
+.mensaje-bienvenida {
+  color: #888;
+  text-align: center;
+  font-size: 13px;
+  padding: 10px;
+}
+
+.mensaje-usuario {
+  background-color: #64c59b;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 15px;
+  border-bottom-right-radius: 2px; 
+  max-width: 70%; 
+  align-self: flex-end; 
+  margin: 5px 0;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+
+.mensaje-profesor {
+  background-color: #ffffff; 
+  color: #333;
+  padding: 10px 15px;
+  border-radius: 15px;
+  border-bottom-left-radius: 2px; 
+  max-width: 70%; 
+  align-self: flex-start; 
+  margin: 5px 0;
+  font-size: 14px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
