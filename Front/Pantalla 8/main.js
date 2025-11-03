@@ -2,8 +2,24 @@ const tituloMensaje = document.querySelector('.titulo');
 const textareaMensaje = document.querySelector('textarea');
 const btnEnviarMensaje = document.querySelector('button[type="submit"]');
 
-function enviarMensaje(event) {
+const USUARIO_ACTUAL = "Tú (Alumno)"; 
 
+function setProfesorDesdeURL() {
+    const params = new URLSearchParams(window.location.search);
+    const nombreProfesor = params.get('profesor');
+
+    if (nombreProfesor) {
+        
+        tituloMensaje.textContent = `Enviar mensaje a ${decodeURIComponent(nombreProfesor)}`;
+    } else {
+        
+        tituloMensaje.textContent = 'Enviar mensaje';
+    }
+}
+
+
+function enviarMensaje(event) {
+    
     event.preventDefault(); 
     
     const mensaje = textareaMensaje.value.trim();
@@ -14,28 +30,12 @@ function enviarMensaje(event) {
         return;
     }
     
-
-    alert(`¡Mensaje enviado con éxito a ${nombreProfesor}!\n\nMensaje: "${mensaje}"`);
+    alert(`Mensaje enviado con éxito a ${nombreProfesor}!\n\nTu mensaje:\n"${mensaje}"`);
     
     textareaMensaje.value = '';
-    
 }
 
 btnEnviarMensaje.addEventListener('click', enviarMensaje); 
-
-
-function setProfesorDesdeURL() {
-    const params = new URLSearchParams(window.location.search);
-    const nombreProfesor = params.get('profesor');
-
-    if (nombreProfesor) {
-
-        tituloMensaje.textContent = `Enviar mensaje a ${decodeURIComponent(nombreProfesor)}`;
-    } else {
-
-        tituloMensaje.textContent = 'Enviar mensaje';
-    }
-}
 
 
 setProfesorDesdeURL();

@@ -129,15 +129,13 @@ const baseDeDatosProfesores = [
                   listaReseñasHTML.appendChild(nuevoLi);
               }
               
-              // --- LÓGICA DE CONTACTAR (REDIRECCIÓN A PANTALLA 8) ---
-              // Buscamos el botón aquí para asegurarnos de que exista.
+              
               const btnContactar = document.querySelector('.btn-contactar'); 
               
               if (btnContactar) {
                   btnContactar.onclick = () => {
                       const nombreCodificado = encodeURIComponent(profesor.nombre);
-                      // Redirección a la Pantalla 8 (ruta de carpeta y index.html)
-                     // REEMPLAZA SÓLO LA RUTA con un slash al inicio:
+                     
 window.location.href = `../Pantalla 8/index.html?profesor=${nombreCodificado}`; 
                   };
               }
