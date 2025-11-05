@@ -9,7 +9,6 @@ body {
   background-color: #e6f6ff;
 }
 
-/* ----- HEADER ----- */
 .top-bar {
   display: flex;
   justify-content: space-between;
@@ -41,7 +40,7 @@ body {
   background-color: #dff7f0;
 }
 
-/* ----- CONTENIDO PRINCIPAL ----- */
+
 .contenido {
   display: flex;
   justify-content: space-between;
@@ -49,7 +48,6 @@ body {
   padding: 40px 60px;
 }
 
-/* Texto */
 .texto {
   width: 45%;
 }
@@ -68,14 +66,13 @@ body {
   color: #333;
 }
 
-/* Imágenes */
+
 .imagenes {
   display: flex;
   gap: 25px;
   align-items: flex-end;
 }
 
-/* Distintas alturas y posiciones */
 .imagenes img {
   width: 200px;
   object-fit: cover;
@@ -100,9 +97,45 @@ body {
   transform: translateY(25px);
 }
 
-/* efecto hover suave */
+
 .imagenes img:hover {
   transform: scale(1.05);
   filter: brightness(1.05);
 }
 
+.botones button {
+
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 8px; 
+  cursor: pointer; 
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.1s;
+  letter-spacing: 0.5px;
+}
+
+#irPantalla2 {
+  background-color: #4bb69c; 
+  color: white; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#irPantalla2:hover {
+  background-color: #38a087;
+}
+
+#registrarme {
+  background-color: transparent; 
+  color: #4bb69c; 
+  border: 2px solid #4bb69c;
+}
+
+#registrarme:hover {
+  background-color: #4bb69c; 
+  color: white;
+}
+
+.botones button:active {
+  transform: scale(0.98); 
+}
