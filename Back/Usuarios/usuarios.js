@@ -26,13 +26,17 @@ export function registrarUsuario(data) {
             return { success: false, info: "El usuario ya existe" };
         }
 
+        if (!data.rol || (data.rol !== "alumno" && data.rol !== "profesor")) {
+            return { success: false, info: "Rol inválido. Debe ser 'alumno' o 'profesor'." };
+        }
         // Agregar el nuevo usuario
         usuarios.push({
             usuario: data.usuario,
             mail: data.mail,
-            contraseña: data.contraseña,
+            contraseña: data.contraseña, 
             telefono: data.telefono || "",
             foto: data.foto || "",
+            rol: data.rol || "",
         });
 
         // Guardar el archivo actualizado

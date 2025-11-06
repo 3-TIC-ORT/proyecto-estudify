@@ -9,7 +9,7 @@ subscribeGETEvent("cors", () => {
 subscribeGETEvent("cors", () => ({ mensaje: "CORS activo" }));
 
 
-// sign up
+// sign up VIEJO, BORRAR
 
 subscribePOSTEvent('registrarUsuario', registrarUsuario);
 
@@ -25,6 +25,28 @@ let nuevoJson = JSON.stringify(usuarios, null, 2);
 fs.writeFileSync("usuarios.json", nuevoJson);
 
 return {"success": true}
+}
+
+//sign up
+
+subscribePOSTEvent('registrarUsuario', registrarUsuario);
+
+function registrarUsuario(datos) {
+  let data = fs.readFileSync("usuarios.json", "utf-8");
+  let usuarios = JSON.parse(data);
+
+  if (!datos.rol || (datos.rol !== "alumno" && datos.rol !== "profesor")) {
+    return { success: false, mensaje: "Rol inválido. Debe ser 'alumno' o 'profesor'." };
+  }
+  const nuevoUsuario = {
+    usuario: datos.usuario, contraseña: datos.contraseña, mail: datos.mail, numeroDeTelefono: datos.teléfono, nacimiento: datos.nacimiento, materias: datos.materias, rol: datos.rol  
+  };
+
+  usuarios.push(nuevoUsuario);
+
+  fs.writeFileSync("usuarios.json", JSON.stringify(usuarios, null, 2));
+
+  return { success: true, mensaje: "Usuario registrado correctamente." };
 }
 
 // log in
