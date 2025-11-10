@@ -56,14 +56,19 @@ function iniciarUsuario (data){
 }
 
 // profesores
-
 subscribeGETEvent("profesores", obtenerProfesores);
 
 function obtenerProfesores() {
-  let data = fs.readFileSync("profesores.json", "utf-8");
-  let profesores = JSON.parse(data);
-  return profesores;
+  try {
+    let data = fs.readFileSync("profesores.json", "utf-8");
+    let profesores = JSON.parse(data);
+    return { success: true, profesores }; // ✅ devuelve el formato esperado
+  } catch (error) {
+    console.error("Error al leer profesores.json:", error);
+    return { success: false, error: "No se pudo leer el archivo de profesores." };
+  }
 }
+
 
 // profe pir materia
 subscribeGETEvent("profesoresPorMateria", obtenerProfesoresPorMateria);
