@@ -22,7 +22,7 @@ function registrarUsuario(datos) {
     return { success: false, mensaje: "Rol inválido. Debe ser 'alumno' o 'profesor'." };
   }
   const nuevoUsuario = {
-    usuario: datos.usuario, contraseña: datos.contraseña, mail: datos.mail, numeroDeTelefono: datos.teléfono, nacimiento: datos.nacimiento, materias: datos.materias, rol: datos.rol  
+    usuario: datos.usuario, contraseña: datos.contraseña, mail: datos.mail, numeroDeTelefono: datos.teléfono, nacimiento: datos.nacimiento, materias: datos.materias, rol: datos.rol, id: usuarios.length + 1, foto: datos.foto 
   };
 
   usuarios.push(nuevoUsuario);
@@ -166,18 +166,20 @@ const filePath = path.resolve('./usuarios.json');
 
 // actualizar perfil (versión soquetic)
 subscribePOSTEvent("actualizarPerfil", (data) => {
-  const { id, ...nuevaData } = data;
-
   let usuarios = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-  const usuario = usuarios.find(u => u.id === id);
+  const usuario = usuarios.find(u => u.id === data.id);
 
   if (!usuario) return { error: "Usuario no encontrado" };
 
-  // actualizar perfil
-  usuario.nombre = nuevaData.nombre || usuario.nombre;
-  usuario.telefono = nuevaData.telefono || usuario.telefono;
-  usuario.foto = nuevaData.foto || usuario.foto;
-  if (nuevaData.password) usuario.password = nuevaData.password;
+  // actualizar perfil con todos los datos del registro
+  usuario.usuario = data.usuario || usuario.usuario;
+  usuario.mail = data.mail || usuario.mail;
+  usuario.telefono = data.telefono || usuario.telefono;
+  usuario.nacimiento = data.nacimiento || usuario.nacimiento;
+  usuario.materias = data.materias || usuario.materias;
+  usuario.rol = data.rol || usuario.rol;
+  usuario.foto = data.foto || usuario.foto;
+  if (data.contraseña) usuario.contraseña = data.contraseña;
 
   // guardar cambios
   fs.writeFileSync(filePath, JSON.stringify(usuarios, null, 2), 'utf-8');
@@ -191,9 +193,15 @@ app.use(express.json());
 
 app.put('/perfil/:id', (req, res) => {
   const id = parseInt(req.params.id);
-  const datos = req.body;
-  const resultado = actualizarPerfil(id, datos);
-  res.json(resultado);
+  const data = { ...req.body, id };
+
+  let usuarios = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  const usuario = usuarios.find(u => u.id === id);
+
+  if (!usuario) return res.json({ error: "Usuario no encontrado" });
+
+  fs.writeFileSync(filePath, JSON.stringify(usuarios, null, 2), 'utf-8');
+  res.json({ ok: true, usuario });
 });
 
 startServer(3001);
