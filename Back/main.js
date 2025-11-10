@@ -9,23 +9,6 @@ subscribeGETEvent("cors", () => {
 subscribeGETEvent("cors", () => ({ mensaje: "CORS activo" }));
 
 
-// sign up VIEJO, BORRAR
-
-subscribePOSTEvent('registrarUsuario', registrarUsuario);
-
-function registrarUsuario(datos){
-let data = fs.readFileSync("usuarios.json", "utf-8");
-
-let usuarios = JSON.parse(data);
-
-usuarios.push({"usuario": datos.usuario, "contraseña": datos.contraseña, "mail":datos.mail, "numeroDeTelefono":datos.teléfono, "nacimiento":datos.nacimiento, "Materias":datos.Materias,});
-
-let nuevoJson = JSON.stringify(usuarios, null, 2);
-
-fs.writeFileSync("usuarios.json", nuevoJson);
-
-return {"success": true}
-}
 
 //sign up
 
@@ -213,4 +196,4 @@ app.put('/perfil/:id', (req, res) => {
   res.json(resultado);
 });
 
-startServer(3000);
+startServer(3001);
