@@ -197,6 +197,7 @@
           mostrarListaProfesores();
       });
     
+    soquetic.get("resenasProfesor", { profesorId: 2 }); // para el back
 
     btnEnviarReseña.addEventListener('click', manejarEnvioReseña); 
     
