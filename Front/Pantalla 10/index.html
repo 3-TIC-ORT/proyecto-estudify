@@ -1,58 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería de Profesores - Inglés</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudify - Galería de Profesores Matematica</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-
-  <div class="galeria-profesores">
-  
-    <div class="profesor" data-materia="ingles">
-      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400" class="foto-profesor">
-      <div class="nombre-profesor">Emily Brown</div>
+  <div class="top-bar">
+    <p class="logo">Studify</p> 
+    <div class="iconos-header">
+      <img src="placeholder_user_icon.png" class="icono" alt="Usuario">
+      <img src="placeholder_mail_icon.png" class="icono" alt="Mensajes">
     </div>
-
-    <div class="profesor" data-materia="ingles">
-      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400" class="foto-profesor">
-      <div class="nombre-profesor">James Smith</div>
-    </div>
-
-    <div class="profesor" data-materia="ingles">
-      <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400" class="foto-profesor">
-      <div class="nombre-profesor">Olivia Johnson</div>
-    </div>
-
-    <div class="profesor" data-materia="ingles">
-      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400" class="foto-profesor">
-      <div class="nombre-profesor">Michael Williams</div>
-    </div>
-
-    <div class="profesor" data-materia="ingles">
-      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400" class="foto-profesor">
-      <div class="nombre-profesor">Sophia Davis</div>
-    </div>
-
-    <div class="profesor" data-materia="ingles">
-      <img src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=400" class="foto-profesor">
-      <div class="nombre-profesor">William Martinez</div>
-    </div>
-
-    <div class="profesor" data-materia="ingles">
-      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400" class="foto-profesor">
-      <div class="nombre-profesor">Ava Taylor</div>
-    </div>
-
-    <div class="profesor" data-materia="ingles">
-      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" class="foto-profesor">
-      <div class="nombre-profesor">Daniel Anderson</div>
-    </div>
-
   </div>
 
-  <script src="main.js"></script>
+  <section id="pantalla5" class="pantalla-visible">
+    <h1>Conoce a Nuestros Profesores</h1>
+    <div class="galeria-profesores"></div>
+  </section>
+
+  <section id="pantalla6" class="pantalla-oculta">
+    <div class="detalle-profesor">
+      <button id="btnVolver">&lt;-- Volver a la lista</button>
+      
+      <div class="info-principal">
+        <div class="card-profesor">
+          <img id="detalle-img" src="" alt="Foto del profesor">
+          <h2 id="detalle-nombre"></h2> 
+          <div class="rating">⭐️ 4.5</div> 
+          <div class="precio" id="detalle-precio">1500/h</div>
+          <button class="btn-contactar">CONTACTAR</button>
+        </div>
+        
+        <div class="descripcion">
+          <p id="detalle-info"></p>
+        </div>
+      </div>
+
+      <div class="reseñas">
+        <h3>Reseñas de Alumnos</h3>
+        <ul id="detalle-reseñas"></ul>
+        <div class="nueva-reseña">
+          <h4>Deja tu reseña:</h4>
+          <textarea id="textoReseña" placeholder="Escribe tu comentario aquí..."></textarea> 
+          <button class="btn-enviar">Enviar Reseña</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="main.js"></script> 
 </body>
 </html>
