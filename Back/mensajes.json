@@ -1,0 +1,18 @@
+[
+    {
+    "identificadorProfesor": "Luu Parrondo",
+    "identificadroAlumno":"Juana",
+    "mensajes":[
+        {"perfil": "alumno", "texto": "hola"},
+        {"perfil": "alumno", "texto": "tengo una pregunta"},
+        {"perfil": "profesor", "texto": "tengo una pregunta"}
+    ]
+    },
+    {
+        "identificadorProfesor": "",
+        "identificadroAlumno":"",
+        "mensajes":[
+            {"perfil": "alumno", "texto": "hola"}
+            ]
+    }
+]

@@ -1,20 +1,262 @@
 [
   {
-    "nombre": "Juan Pérez",
+    "id": 1,
+    "nombre": "Juan Perez",
     "materia": "Matemática",
-    "descripcion": "Apasionado por los números y la enseñanza creativa.",
-    "imagen": "https://via.placeholder.com/150"
+    "imagen": "https://media.istockphoto.com/id/1153206644/es/foto/hombre-ejecutivo-en-traje-de-moda-mirando-a-la-c%C3%A1mara.jpg?s=612x612&w=0&k=20&c=eNttZIZF3qjdZvjqeLqorvUyeT-wYyw_rt5BMrj06VM=",
+    "info": "Juan es un experto en Cálculo Diferencial e Integral. Tiene más de 15 años de experiencia y una paciencia infinita para explicar los conceptos más difíciles.",
+    "reseñas": [
+      { "usuario": "Micaela R.", "comentario": "¡Un genio! Aprobé gracias a él." },
+      { "usuario": "Lucas G.", "comentario": "Explica 10/10." }
+    ]
   },
   {
-    "nombre": "Ana García",
-    "materia": "Lengua y Literatura",
-    "descripcion": "Le encanta la lectura y las historias con significado.",
-    "imagen": "https://via.placeholder.com/150"
+    "id": 2,
+    "nombre": "Alejandro Gomez",
+    "materia": "Matemática",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIavu-4J8Vb3fTVkPhAxFwqu8VdX4QvgOseQ&s",
+    "info": "Alejandro se especializa en Álgebra Lineal y vectores. Hace que temas muy abstractos parezcan sencillos con ejemplos de la vida real.",
+    "reseñas": [
+      { "usuario": "Sofía P.", "comentario": "El mejor profe de álgebra que tuve." }
+    ]
   },
   {
-    "nombre": "Carlos Díaz",
-    "materia": "Historia",
-    "descripcion": "Cuenta la historia como si fuera una aventura.",
-    "imagen": "https://via.placeholder.com/150"
+    "id": 3,
+    "nombre": "Julian Gonzalez",
+    "materia": "Matemática",
+    "imagen": "https://img.freepik.com/foto-grafico-gratis/retrato-hombre-gafas_329181-12127.jpg?semt=ais_hybrid&w=740&q=80",
+    "info": "Profesor de Estadística y Probabilidad. Sus clases son muy prácticas y enfocadas en análisis de datos. Siempre trae ejercicios interesantes.",
+    "reseñas": [
+      { "usuario": "Tomás F.", "comentario": "Me ayudó a entender estadística para mi tesis." },
+      { "usuario": "Valen L.", "comentario": "Muy claro y siempre dispuesto a ayudar." }
+    ]
+  },
+  {
+    "id": 4,
+    "nombre": "Martina Rodriguez",
+    "materia": "Matemática",
+    "imagen": "https://media.istockphoto.com/id/956564854/es/foto/cerca-de-retrato-de-mujer-bonita-encantadora-alegre-en-camisa-gafas-encontrar-una-idea.jpg?s=612x612&w=0&k=20&c=xiXIkiGtmcKW51u3uXuiaBP0SCOwCUl0qge0rFsE0JI=",
+    "info": "Martina es experta en Geometría y Trigonometría. Tiene una habilidad especial para hacer visuales los problemas y que puedas entenderlos.",
+    "reseñas": [
+      { "usuario": "Agustina B.", "comentario": "¡La mejor! Súper didáctica." }
+    ]
+  },
+  {
+    "id": 5,
+    "nombre": "Isabella Lopez",
+    "materia": "Matemática",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD5CmHG3iBzib-L_id28mQouqDljrF69c0qA&s",
+    "info": "Especialista en Física Matemática. Si tienes problemas con los temas que combinan física y matemática avanzada, Isabella es la indicada.",
+    "reseñas": [
+      { "usuario": "Javier M.", "comentario": "Una genia total, sabe muchísimo." }
+    ]
+  },
+  {
+    "id": 6,
+    "nombre": "Juana Sanchez",
+    "materia": "Matemática",
+    "imagen": "https://www.clarin.com/2023/05/04/xICdTNtB__720x0__1.jpg",
+    "info": "Juana se dedica a la Didáctica de las Matemáticas, ideal para quienes cursan profesorados o necesitan un enfoque más pedagógico.",
+    "reseñas": [
+      { "usuario": "EstudianteProf.", "comentario": "Aprendí mucho sobre cómo enseñar." }
+    ]
+  },
+  {
+    "id": 7,
+    "nombre": "Pedro Dominguez",
+    "materia": "Matemática",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPVk6k5xuCFxJE5MRDlmfrdeHCuGH1qYSMBp8_PwkvfwK1KWcQrg4z9WAIDNWM84Ox-a0&usqp=CAU",
+    "info": "Experto en Matemática Financiera. Perfecto para estudiantes de Economía, Administración o Contabilidad. Explica interés simple y compuesto como nadie.",
+    "reseñas": [
+      { "usuario": "Ramiro C.", "comentario": "Aprobé finanzas gracias a Pedro." },
+      { "usuario": "Camila Z.", "comentario": "Muy paciente." }
+    ]
+  },
+  {
+    "id": 8,
+    "nombre": "Julia Romero",
+    "materia": "Matemática",
+    "imagen": "https://media.vogue.mx/photos/5c0702997ce4111b8fae953f/2:3/w_2560%2Cc_limit/amal_clooney_1346.jpg",
+    "info": "Julia es profesora de Lógica y Teoría de Conjuntos. Sus clases son desafiantes y te ayudan a estructurar tu pensamiento como un verdadero matemático.",
+    "reseñas": [
+      { "usuario": "Federico A.", "comentario": "Clases de altísimo nivel." }
+    ]
+  },
+  {
+    "id": 1,
+    "nombre": "Emily Brown",
+    "materia": "Inglés",
+    "imagen": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400",
+    "info": "Emily es una profesora apasionada por la enseñanza del inglés. Combina métodos modernos con actividades interactivas para mejorar la pronunciación y comprensión.",
+    "reseñas": [
+      { "usuario": "Carla P.", "comentario": "Me encantaron sus clases, súper dinámicas." },
+      { "usuario": "Tomás L.", "comentario": "Aprendí muchísimo en poco tiempo." }
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "James Smith",
+    "materia": "Inglés",
+    "imagen": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400",
+    "info": "James tiene amplia experiencia enseñando inglés a estudiantes internacionales. Sus clases se centran en conversación y fluidez.",
+    "reseñas": [
+      { "usuario": "Valentina C.", "comentario": "Muy paciente y explica excelente." },
+      { "usuario": "Martín D.", "comentario": "Ideal para practicar conversación." }
+    ]
+  },
+  {
+    "id": 3,
+    "nombre": "Olivia Johnson",
+    "materia": "Inglés",
+    "imagen": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400",
+    "info": "Olivia enseña con pasión y energía. Le encanta usar música y películas para reforzar el vocabulario y la comprensión auditiva.",
+    "reseñas": [
+      { "usuario": "Sofía R.", "comentario": "Sus clases son muy entretenidas." },
+      { "usuario": "Nico G.", "comentario": "Aprendí más con ella que en años de curso." }
+    ]
+  },
+  {
+    "id": 4,
+    "nombre": "Michael Williams",
+    "materia": "Inglés",
+    "imagen": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400",
+    "info": "Michael tiene una forma clara y divertida de enseñar. Sus clases se enfocan en gramática aplicada y conversación real.",
+    "reseñas": [
+      { "usuario": "Lucía T.", "comentario": "Explica súper claro." },
+      { "usuario": "Emanuel P.", "comentario": "Sus clases son un placer." }
+    ]
+  },
+  {
+    "id": 5,
+    "nombre": "Sophia Davis",
+    "materia": "Inglés",
+    "imagen": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400",
+    "info": "Sophia es especialista en inglés británico. Le encanta enseñar expresiones idiomáticas y acentos.",
+    "reseñas": [
+      { "usuario": "Lautaro M.", "comentario": "Aprendí muchísimo con sus tips de pronunciación." },
+      { "usuario": "María B.", "comentario": "Tiene un enfoque muy profesional." }
+    ]
+  },
+  {
+    "id": 6,
+    "nombre": "William Martinez",
+    "materia": "Inglés",
+    "imagen": "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=400",
+    "info": "William motiva a sus alumnos con ejemplos prácticos y actividades grupales. Especialista en inglés para viajes y negocios.",
+    "reseñas": [
+      { "usuario": "Cami F.", "comentario": "Excelente profe, muy claro." },
+      { "usuario": "Diego S.", "comentario": "Lo recomiendo 100%." }
+    ]
+  },
+  {
+    "id": 7,
+    "nombre": "Ava Taylor",
+    "materia": "Inglés",
+    "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400",
+    "info": "Ava combina paciencia con creatividad. Usa materiales auténticos para enseñar de forma práctica.",
+    "reseñas": [
+      { "usuario": "Ana L.", "comentario": "Sus clases son muy divertidas." },
+      { "usuario": "Bruno A.", "comentario": "Muy buena energía y claridad." }
+    ]
+  },
+  {
+    "id": 8,
+    "nombre": "Daniel Anderson",
+    "materia": "Inglés",
+    "imagen": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+    "info": "Daniel tiene una gran experiencia preparando alumnos para exámenes internacionales. Enfoca sus clases en speaking y listening.",
+    "reseñas": [
+      { "usuario": "Julieta C.", "comentario": "Gracias a él aprobé el First!" },
+      { "usuario": "Pablo M.", "comentario": "Excelente método de enseñanza." }
+    ]
+  },
+  {
+    "id": 1,
+    "nombre": "Lucía Fernández",
+    "materia": "Lengua",
+    "imagen": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400",
+    "info": "Lucía es especialista en gramática y literatura. Le apasiona fomentar la lectura y la escritura creativa en sus alumnos.",
+    "reseñas": [
+      { "usuario": "Emilia R.", "comentario": "Hace que todo sea fácil de entender." },
+      { "usuario": "Juan P.", "comentario": "Excelente profe, muy clara." }
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "Santiago Ruiz",
+    "materia": "Lengua",
+    "imagen": "https://images.unsplash.com/photo-1603415526960-f7e0328ad1c7?w=400",
+    "info": "Santiago combina la teoría con análisis de textos actuales. Motiva a los estudiantes a expresarse con confianza.",
+    "reseñas": [
+      { "usuario": "Valeria T.", "comentario": "Aprendí mucho con sus clases." },
+      { "usuario": "Diego F.", "comentario": "Muy dinámico y atento." }
+    ]
+  },
+  {
+    "id": 3,
+    "nombre": "Valentina Morales",
+    "materia": "Lengua",
+    "imagen": "https://images.unsplash.com/photo-1554151228-14d9def656e4?w=400",
+    "info": "Valentina enseña con entusiasmo y creatividad. Le encanta usar literatura clásica y moderna para enseñar comprensión lectora.",
+    "reseñas": [
+      { "usuario": "Carla G.", "comentario": "Hace las clases muy interesantes." },
+      { "usuario": "Tomás E.", "comentario": "Explica con mucha paciencia." }
+    ]
+  },
+  {
+    "id": 4,
+    "nombre": "Ignacio Cabrera",
+    "materia": "Lengua",
+    "imagen": "https://images.unsplash.com/photo-1590080875832-1c1a6c84a5c1?w=400",
+    "info": "Ignacio tiene un enfoque práctico para enseñar redacción y ortografía. Promueve el pensamiento crítico y la claridad al escribir.",
+    "reseñas": [
+      { "usuario": "Lucía P.", "comentario": "Aprendí a redactar mucho mejor." },
+      { "usuario": "Matías R.", "comentario": "Sus correcciones ayudan muchísimo." }
+    ]
+  },
+  {
+    "id": 5,
+    "nombre": "Florencia Ríos",
+    "materia": "Lengua",
+    "imagen": "https://images.unsplash.com/photo-1614280730957-d09b2c67d2f2?w=400",
+    "info": "Florencia transmite su amor por la lectura y la escritura. Sus clases son participativas y divertidas.",
+    "reseñas": [
+      { "usuario": "Sofi L.", "comentario": "Siempre te motiva a leer más." },
+      { "usuario": "Pedro V.", "comentario": "Excelente energía y dedicación." }
+    ]
+  },
+  {
+    "id": 6,
+    "nombre": "Tomás Herrera",
+    "materia": "Lengua",
+    "imagen": "https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=400",
+    "info": "Tomás se especializa en análisis literario y comprensión textual. Le gusta conectar los textos con temas actuales.",
+    "reseñas": [
+      { "usuario": "Martina S.", "comentario": "Sus clases te hacen pensar." },
+      { "usuario": "Lucas A.", "comentario": "Muy entretenido y profesional." }
+    ]
+  },
+  {
+    "id": 7,
+    "nombre": "Camila Torres",
+    "materia": "Lengua",
+    "imagen": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400",
+    "info": "Camila tiene una gran vocación docente. Le gusta enseñar ortografía, redacción y análisis de textos narrativos.",
+    "reseñas": [
+      { "usuario": "Mili C.", "comentario": "Sus explicaciones son muy claras." },
+      { "usuario": "Juli G.", "comentario": "Aprendí un montón con ella." }
+    ]
+  },
+  {
+    "id": 8,
+    "nombre": "Martín Díaz",
+    "materia": "Lengua",
+    "imagen": "https://images.unsplash.com/photo-1544725176-7c40e5a2c9f9?w=400",
+    "info": "Martín tiene una metodología práctica para mejorar la expresión escrita. Fomenta la lectura de autores latinoamericanos.",
+    "reseñas": [
+      { "usuario": "Clara J.", "comentario": "Muy claro y profesional." },
+      { "usuario": "Nico Z.", "comentario": "Sus clases son un 10." }
+    ]
   }
+  
 ]

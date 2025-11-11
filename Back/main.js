@@ -1,30 +1,30 @@
 import fs from "fs";
 import { subscribeGETEvent, subscribePOSTEvent, startServer } from 'soquetic'
 
-subscribeGETEvent("cors", () => {
-  return { mensaje: "CORS activo" };
-});
 
 // parchear todas las respuestas
 subscribeGETEvent("cors", () => ({ mensaje: "CORS activo" }));
 
-
-// sign up
+//sign up
 
 subscribePOSTEvent('registrarUsuario', registrarUsuario);
 
-function registrarUsuario(datos){
-let data = fs.readFileSync("usuarios.json", "utf-8");
+function registrarUsuario(datos) {
+  let data = fs.readFileSync("usuarios.json", "utf-8");
+  let usuarios = JSON.parse(data);
 
-let usuarios = JSON.parse(data);
+  if (!datos.rol || (datos.rol !== "alumno" && datos.rol !== "profesor")) {
+    return { success: false, mensaje: "Rol inválido. Debe ser 'alumno' o 'profesor'." };
+  }
+  const nuevoUsuario = {
+    usuario: datos.usuario, contraseña: datos.contraseña, mail: datos.mail, telefono: datos.telefono, nacimiento: datos.nacimiento, materias: datos.materias, rol: datos.rol, id: usuarios.length + 1, foto: datos.foto 
+  };
 
-usuarios.push({"usuario": datos.usuario, "contraseña": datos.contraseña, "mail":datos.mail, "numeroDeTelefono":datos.teléfono, "nacimiento":datos.nacimiento, "Materias":datos.Materias,});
+  usuarios.push(nuevoUsuario);
 
-let nuevoJson = JSON.stringify(usuarios, null, 2);
+  fs.writeFileSync("usuarios.json", JSON.stringify(usuarios, null, 2));
 
-fs.writeFileSync("usuarios.json", nuevoJson);
-
-return {"success": true}
+  return { success: true, mensaje: "Usuario registrado correctamente." };
 }
 
 // log in
@@ -42,7 +42,7 @@ function iniciarUsuario (data){
       return { exito: false, mensaje: "Usuario no encontrado" };
     }
   
-    if (usuarioEncontrado.contra !== data.contra) {
+    if (usuarioEncontrado.contraseña !== data.contraseña) {
       return { exito: false, mensaje: "Contraseña incorrecta" };
     }
   
@@ -51,20 +51,25 @@ function iniciarUsuario (data){
 }
 
 // profesores
-
 subscribeGETEvent("profesores", obtenerProfesores);
 
 function obtenerProfesores() {
-  let data = fs.readFileSync("profesores.json", "utf-8");
-  let profesores = JSON.parse(data);
-  return profesores;
+  try {
+    let data = fs.readFileSync("profesores.json", "utf-8");
+    let profesores = JSON.parse(data);
+    return { success: true, profesores }; 
+  } catch (error) {
+    console.error("Error al leer profesores.json:", error);
+    return { success: false, error: "No se pudo leer el archivo de profesores." };
+  }
 }
 
-// profe pir materia
+
+// profe por materia
 subscribeGETEvent("profesoresPorMateria", obtenerProfesoresPorMateria);
 
 function obtenerProfesoresPorMateria(datos) {
-  const {materia} = datos; // el front manda algo como { materia: "Matemática" }
+  const {materia} = datos; // el front manda algo como ( materia: "Matemática" )
   let data = fs.readFileSync("profesores.json", "utf-8");
   let profesores = JSON.parse(data);
 
@@ -82,27 +87,27 @@ subscribeGETEvent("materias", obtenerMaterias);
 function obtenerMaterias() {
   let data = fs.readFileSync("profesores.json", "utf-8");
   let profesores = JSON.parse(data);
-  // Saco todas las materias sin repetir
+  // saco todas las materias sin repetir
   let materias = [...new Set(profesores.map(p => p.materia))];
   return materias;
 }
 
-//reseñas
-subscribeGETEvent("reseñas", () => {
-  const data = fs.readFileSync("reseñas.json", "utf-8");
+// reseñas
+subscribeGETEvent("resenas", () => {
+  const data = fs.readFileSync("resenas.json", "utf-8");
   return JSON.parse(data);
 });
 
 subscribePOSTEvent("agregarResena", (nueva) => {
-  const data = fs.readFileSync("reseñas.json", "utf-8");
+  const data = fs.readFileSync("resenas.json", "utf-8");
   const resenas = JSON.parse(data);
   nueva.id = resenas.length + 1;
   resenas.push(nueva);
-  fs.writeFileSync("reseñas.json", JSON.stringify(resenas, null, 2));
-  return { ok: true, reseña: nueva };
+  fs.writeFileSync("resenas.json", JSON.stringify(resenas, null, 2));
+  return { ok: true, resena: nueva };
 });
 
-//reseñas , usuarios pueden agregar 
+//reseñas, usuarios pueden agregar 
 
 import path from "path";
 import { fileURLToPath } from "url";
@@ -138,22 +143,19 @@ subscribePOSTEvent("agregarResena", async (data) => {
         resenas.push(nuevaResena);
         fs.writeFileSync(resenasPath, JSON.stringify(resenas, null, 2));
 
-        return { success: true, message: "Reseña agregada", resena: nuevaResena };
+        return { success: true, message: "Resena agregada", resena: nuevaResena };
     } catch (err) {
         return { success: false, message: err.message };
     }
 });
 
 // endpoint para obtener reseñas de un profesor
-subscribeGETEvent("resenas/:profesorId", async (params) => {
-    try {
-        const profesorId = params.profesorId;
-        const resenas = JSON.parse(fs.readFileSync(resenasPath, "utf-8"));
-        const resenasProfesor = resenas.filter(r => r.profesorId == profesorId);
-        return { success: true, resenas: resenasProfesor };
-    } catch (err) {
-        return { success: false, message: err.message };
-    }
+
+subscribeGETEvent("resenasProfesor", (params) => {
+  const { profesorId } = params; // el front te envía el id del profesor
+  const resenas = JSON.parse(fs.readFileSync(resenasPath, "utf-8"));
+  const resenasProfesor = resenas.filter(r => r.profesorId == profesorId);
+  return { success: true, resenas: resenasProfesor };
 });
 
 //perfil usuario
@@ -161,34 +163,25 @@ const filePath = path.resolve('./usuarios.json');
 
 // actualizar perfil (versión soquetic)
 subscribePOSTEvent("actualizarPerfil", (data) => {
-  const { id, ...nuevaData } = data;
-
   let usuarios = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-  const usuario = usuarios.find(u => u.id === id);
+  const usuario = usuarios.find(u => u.id === data.id);
 
   if (!usuario) return { error: "Usuario no encontrado" };
 
-  // actualizar perfil
-  usuario.nombre = nuevaData.nombre || usuario.nombre;
-  usuario.telefono = nuevaData.telefono || usuario.telefono;
-  usuario.foto = nuevaData.foto || usuario.foto;
-  if (nuevaData.password) usuario.password = nuevaData.password;
+  // actualizar perfil con todos los datos del registro
+  usuario.usuario = data.usuario || usuario.usuario;
+  usuario.mail = data.mail || usuario.mail;
+  usuario.telefono = data.telefono || usuario.telefono;
+  usuario.nacimiento = data.nacimiento || usuario.nacimiento;
+  usuario.materias = data.materias || usuario.materias;
+  usuario.rol = data.rol || usuario.rol;
+  usuario.foto = data.foto || usuario.foto;
+  if (data.contraseña) usuario.contraseña = data.contraseña;
 
   // guardar cambios
   fs.writeFileSync(filePath, JSON.stringify(usuarios, null, 2), 'utf-8');
   return { ok: true, usuario };
 });
 
-// endpoint ejemplo (usando Express)
-import express from 'express';
-const app = express();
-app.use(express.json());
 
-app.put('/perfil/:id', (req, res) => {
-  const id = parseInt(req.params.id);
-  const datos = req.body;
-  const resultado = actualizarPerfil(id, datos);
-  res.json(resultado);
-});
-
-startServer(3000);
+startServer(3002);
