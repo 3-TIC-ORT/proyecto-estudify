@@ -83,6 +83,32 @@ const btnVolver = document.getElementById('btnVolver');
 const btnEnviarReseña = document.querySelector('.btn-enviar');
 const USUARIO_ACTUAL = "Tú (Alumno)";
 
+async function guardarResenaEnServidor(resena) {
+  try {
+    const respuesta = await fetch("http://localhost:3002/agregarResena", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(resena),
+    });
+    const data = await respuesta.json();
+    if (!data.success) console.warn("No se pudo guardar reseña:", data.message);
+  } catch (error) {
+    console.error("Error al conectar con el servidor:", error);
+  }
+}
+
+async function obtenerResenasDesdeServidor(profesorId) {
+  try {
+    const respuesta = await fetch(`http://localhost:3001/resenasProfesor?profesorId=${profesorId}`);
+    const data = await respuesta.json();
+    if (data.success && data.resenas) return data.resenas;
+  } catch (error) {
+    console.error("Error al traer reseñas:", error);
+  }
+  return [];
+}
+
+
 function cargarGaleria() {
   galeriaProfesores.innerHTML = "";
   baseDeDatosProfesores.forEach(profesor => {
@@ -133,7 +159,7 @@ function mostrarListaProfesores() {
   pantalla5.classList.replace('pantalla-oculta', 'pantalla-visible');
 }
 
-function manejarEnvioReseña() {
+async function manejarEnvioReseña() {
   const texto = document.querySelector('#textoReseña').value.trim();
   const nombre = document.getElementById('detalle-nombre').textContent;
   const profesor = baseDeDatosProfesores.find(p => p.nombre === nombre);
@@ -141,11 +167,25 @@ function manejarEnvioReseña() {
   if (!texto) return alert("Por favor, escribe un comentario antes de enviar la reseña.");
   if (!profesor) return console.error("Profesor no encontrado.");
 
-  profesor.reseñas.push({ usuario: USUARIO_ACTUAL, comentario: texto });
+  const nuevaResena = { usuario: USUARIO_ACTUAL, comentario: texto };
+
+  // ✅ Guardar en memoria local
+  profesor.reseñas.push(nuevaResena);
+
+  // ✅ Guardar también en el servidor
+  await guardarResenaEnServidor({
+    usuarioId: 1, // o el ID del usuario logueado si lo tenés
+    profesorId: profesor.id,
+    puntuacion: 5, // si no usás estrellas podés dejar un valor fijo
+    comentario: texto,
+  });
+
+  // ✅ Actualizar la vista
   document.querySelector('#textoReseña').value = '';
   mostrarDetalleProfesor(profesor.id);
   alert("¡Reseña enviada con éxito!");
 }
+
 
 function añadirListenersACards() {
   document.querySelectorAll('.profesor').forEach(card => {
