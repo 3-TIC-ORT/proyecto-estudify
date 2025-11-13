@@ -37,28 +37,27 @@ async function enviarMensaje(event) {
     historialMensajes.scrollTop = historialMensajes.scrollHeight;
 
     try {
-        const res = await fetch("http://localhost:3002/enviarMensaje", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                profesor: nombreProfesor,
-                usuario: "usuarioDemo", 
-                contenido: mensaje
-            })
-        });
-        const data = await res.json();
-        if (!data.success) {
-            console.error("Error al guardar mensaje:", data);
-        }
-    } catch (err) {
-        console.error("Error de conexión con el servidor:", err);
-    }
+
+        postEvent("enviarMensaje", {"profesor": nombreProfesor, "usuario": localStorage["nombreUsuario"], "contenido": mensaje, "perfil": Alumno}, (data) => {
+
+            if (!data.success) {
+                console.error("Error al guardar mensaje:", data);
+            }
+            else {
+                console.error("Mensaje guardado:", data);
+
+            }
+
+        } )
+
+        
+
 }
 
 async function obtenerMensajes(profesor) {
     try {
-        const res = await fetch(`http://localhost:3002/mensajesPorProfesor?profesor=${encodeURIComponent(profesor)}`);
-        const data = await res.json();
+        //const res = await fetch(`http://localhost:3002/mensajesPorProfesor?profesor=${encodeURIComponent(profesor)}`);
+       // const data = await res.json();
         if (data.success && Array.isArray(data.mensajes)) {
             data.mensajes.forEach(m => {
                 const div = document.createElement('div');

@@ -2,20 +2,22 @@ const contenedor = document.getElementById("contenedorMensajes");
 
 async function cargarMensajes() {
   try {
-    // Recuperar el usuario logueado (deberías guardarlo al hacer login)
-    const usuarioActual = localStorage.getItem("usuarioActual") || "usuarioDemo";
+  
+    const usuarioActual = localStorage.getItem("nombreUsuario") || "usuarioDemo";
 
-    const res = await fetch(`http://localhost:3003/conversacionesUsuario?usuario=${usuarioActual}`);
-    const data = await res.json();
+  //  const res = await fetch(`http://localhost:3000/conversacionesUsuario?usuario=${usuarioActual}`);
+  //  const data = await res.json();
 
-    contenedor.innerHTML = ""; // Limpia el contenedor
+    
+
+    contenedor.innerHTML = ""; 
 
     if (!data.success || data.conversaciones.length === 0) {
       contenedor.innerHTML = `<p>No tenés mensajes aún.</p>`;
       return;
     }
 
-    // Crear cada "tarjeta" de mensaje
+  
     data.conversaciones.forEach(conv => {
       const fecha = new Date(conv.fecha);
       const fechaStr = fecha.toLocaleDateString("es-AR", {
@@ -39,7 +41,7 @@ async function cargarMensajes() {
         </div>
       `;
 
-      // al hacer click abre el chat con ese profesor
+     
       div.addEventListener("click", () => {
         window.location.href = `chat.html?profesor=${encodeURIComponent(conv.profesor)}`;
       });

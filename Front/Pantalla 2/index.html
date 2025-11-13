@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Iniciar sesión</title>
+  <title>Studify - Iniciar sesión</title>
+
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
-  
 </head>
 
 <body>
@@ -16,17 +16,22 @@
     <h1>Iniciar sesión</h1>
 
     <form id="formLogin">
-  
+      <label for="email">Correo electrónico</label>
       <input type="email" id="email" placeholder="Tu correo" required>
 
-   
+      <label for="password">Contraseña</label>
       <input type="password" id="password" placeholder="Tu contraseña" required>
 
+      <label for="rol">Rol</label>
+      <select id="rol" required>
+        <option value="">Seleccioná tu rol</option>
+        <option value="alumno">Alumno</option>
+        <option value="profesor">Profesor</option>
+      </select>
+
       <button type="submit" id="comenzar">Comenzar</button>
-      
     </form>
   </div>
- 
 
   <script src="main.js"></script>
 </body>

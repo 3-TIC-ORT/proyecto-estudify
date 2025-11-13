@@ -166,5 +166,14 @@
     "contraseña": "1234",
     "mail": "camizamenfeld@gmail.com",
     "nacimiento": "2025-11-04"
+  },
+  {
+    "usuario": "lu",
+    "contraseña": "luu",
+    "mail": "luu@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "1997-04-02",
+    "rol": "profesor",
+    "id": 38
   }
 ]

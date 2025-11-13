@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Registrarse</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Studify - Registrarse</title>
+
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
 </head>
 
 <body>
+  <div class="login-box">
+    <h1>Registrarse</h1>
 
-  <header>
+    <form id="formRegistro">
 
-  </header>
+      <label for="nombreApellido">Nombre y Apellido:</label>
+      <input type="text" id="nombreApellido" placeholder="Tu nombre completo" required>
+    
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" placeholder="Tu correo" required>
+    
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" placeholder="Tu contraseña" required>
+    
+      <label for="fechaNacimiento">Fecha de nacimiento:</label>
+      <input type="date" id="fechaNacimiento" required>
+    
+      <label for="numeroTelefono">Teléfono:</label>
+      <input type="tel" id="numeroTelefono" placeholder="Tu número" required>
+    
+      <label for="rol">Rol:</label>
+      <select id="rol" required>
+        <option value="">Seleccioná tu rol</option>
+        <option value="alumno">Alumno</option>
+        <option value="profesor">Profesor</option>
+      </select>
+    
+      <button type="submit" id="comenzar">Registrarme</button>
+    </form>
+    
+  </div>
 
-  <main>
-    <div class="login-box">
-      <h1>Registrarse</h1>
-
-      <form id="formRegistro">
-        <input type="text" id="nombreApellido" name="nombreApellido" placeholder="Nombre y Apellido"
-          required><br><br>
-        <input type="email" id="email" name="email" placeholder="Tu correo" required><br><br>
-        <input type="password" id="password" name="password" placeholder="Tu contraseña" required><br><br>
-        <input type="date" id="fechaNacimiento" name="fechaNacimiento" placeholder="Fecha de nacimiento"
-          required><br><br>
-        <input type="tel" id="numeroTelefono" name="numeroTelefono" placeholder="Número de telefono"
-          required><br><br>
-        <button id="comenzar" type="submit">Comenzar</button>
-        <script src="main.js"></script>
-
-      </form>
-    </div>
-  </main>
-
+  <script src="main.js"></script>
 </body>
-
 </html>
+
+
