@@ -183,6 +183,62 @@ subscribePOSTEvent("actualizarPerfil", (data) => {
   return { ok: true, usuario };
 });
 
+//mensajes
+const mensajesPath = path.resolve(__dirname, './mensajes.json');
+if (!fs.existsSync(mensajesPath)) {
+    fs.writeFileSync(mensajesPath, JSON.stringify([]));
+}
+
+subscribePOSTEvent("enviarMensaje", (data) => {
+    try {
+        const { profesor, usuario, contenido, perfil } = data;
+
+        if (!profesor || !usuario || !contenido) {
+            return { success: false, message: "Faltan datos para guardar el mensaje" };
+        }
+
+        const mensajes = JSON.parse(fs.readFileSync(mensajesPath, "utf-8"));
+
+        const nuevoMensaje = {
+            id: mensajes.length + 1,
+            profesor,
+            usuario,
+            contenido,
+            perfil,
+            fecha: new Date().toISOString()
+        };
+
+        mensajes.push(nuevoMensaje);
+
+        fs.writeFileSync(mensajesPath, JSON.stringify(mensajes, null, 2));
+
+        return { success: true, message: "Mensaje guardado", mensaje: nuevoMensaje };
+
+    } catch (err) {
+        return { success: false, message: err.message };
+    }
+});
+
+subscribeGETEvent("mensajesPorProfesor", (params) => {
+    try {
+        const { profesor, usuario } = params;
+
+        if (!profesor || !usuario) {
+            return { success: false, message: "Faltan parámetros" };
+        }
+
+        const mensajes = JSON.parse(fs.readFileSync(mensajesPath, "utf-8"));
+
+        const filtrados = mensajes.filter(m =>
+            m.profesor === profesor && m.usuario === usuario
+        );
+
+        return { success: true, mensajes: filtrados };
+
+    } catch (err) {
+        return { success: false, message: err.message };
+    }
+});
 
 
 startServer();

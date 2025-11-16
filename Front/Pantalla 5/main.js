@@ -31,7 +31,8 @@ const baseDeDatosProfesores = [
   {
     id: 4,
     nombre: "Martina Rodriguez",
-    imagen: "https://media.istockphoto.com/id/956564854/es/foto/cerca-de-retrato-de-mujer-bonita-encantadora-alegre-en-camisa-gafas-encontrar-una-idea.jpg?s=612x612&w=0&k=20&c=xiXIkiGtmcKW51u3uXuiaBP0SCOwCUl0qge0rFsE0JI=",
+    imagen: "https://img.freepik.com/foto-gratis/retrato-mujer-joven-sonriente-posando-pared-blanca_231208-13436.jpg",
+
     info: "Martina es experta en Geometría y Trigonometría. Tiene una habilidad especial para hacer visuales los problemas y que puedas entenderlos.",
     reseñas: [
       { usuario: "Agustina B.", comentario: "¡La mejor! Súper didáctica." }
@@ -68,7 +69,7 @@ const baseDeDatosProfesores = [
   {
     id: 8,
     nombre: "Julia Romero",
-    imagen: "https://media.vogue.mx/photos/5c0702997ce4111b8fae953f/2:3/w_2560%2Cc_limit/amal_clooney_1346.jpg",
+    imagen: "https://img.freepik.com/foto-gratis/retrato-hermosa-mujer-joven-sonriente-que-mira-camara-interior_231208-14285.jpg",
     info: "Julia es profesora de Lógica y Teoría de Conjuntos. Sus clases son desafiantes y te ayudan a estructurar tu pensamiento como un verdadero matemático.",
     reseñas: [
       { usuario: "Federico A.", comentario: "Clases de altísimo nivel." }
@@ -169,18 +170,15 @@ async function manejarEnvioReseña() {
 
   const nuevaResena = { usuario: USUARIO_ACTUAL, comentario: texto };
 
-  // ✅ Guardar en memoria local
   profesor.reseñas.push(nuevaResena);
 
-  // ✅ Guardar también en el servidor
   await guardarResenaEnServidor({
-    usuarioId: 1, // o el ID del usuario logueado si lo tenés
+    usuarioId: 1,
     profesorId: profesor.id,
-    puntuacion: 5, // si no usás estrellas podés dejar un valor fijo
+    puntuacion: 5,
     comentario: texto,
   });
 
-  // ✅ Actualizar la vista
   document.querySelector('#textoReseña').value = '';
   mostrarDetalleProfesor(profesor.id);
   alert("¡Reseña enviada con éxito!");
@@ -199,3 +197,19 @@ btnEnviarReseña.addEventListener('click', manejarEnvioReseña);
 
 cargarGaleria();
 
+document.addEventListener("DOMContentLoaded", () => {
+  const iconoMensajes = document.querySelector(".icono.mensajes");
+  const iconoUsuario = document.querySelector(".icono.usuario");
+
+  if (iconoMensajes) {
+      iconoMensajes.addEventListener("click", () => {
+          window.location.href = "../pantalla 7/index.html";
+      });
+  }
+
+  if (iconoUsuario) {
+      iconoUsuario.addEventListener("click", () => {
+          window.location.href = "../pantalla 11/index.html";
+      });
+  }
+});

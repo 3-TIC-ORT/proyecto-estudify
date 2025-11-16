@@ -175,5 +175,32 @@
     "nacimiento": "1997-04-02",
     "rol": "profesor",
     "id": 38
+  },
+  {
+    "usuario": "camila zamenfeld",
+    "contraseña": "1234",
+    "mail": "camizamenfeld@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "alumno",
+    "id": 39
+  },
+  {
+    "usuario": "camila zamenfeld",
+    "contraseña": "1234",
+    "mail": "camizamenfeld@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "alumno",
+    "id": 40
+  },
+  {
+    "usuario": "camizamenfeld",
+    "contraseña": "1234",
+    "mail": "cami@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "alumno",
+    "id": 41
   }
 ]

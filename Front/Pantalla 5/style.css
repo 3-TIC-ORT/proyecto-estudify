@@ -57,7 +57,7 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: #61f5c1;
+  background-color: #ffffff;
   color: #333; 
   text-align: center;
   padding: 10px 0;
@@ -212,9 +212,6 @@ textarea {
   background-color: #4ad0a3;
 }
 
-/* ========================================================= */
-/* --- 4. TOP BAR (HEADER FIJO) --- */
-/* ========================================================= */
 
 .top-bar {
   position: fixed;
