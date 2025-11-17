@@ -202,5 +202,68 @@
     "nacimiento": "2009-07-27",
     "rol": "alumno",
     "id": 41
+  },
+  {
+    "usuario": "Camila Zamenfeld",
+    "contraseña": "1234",
+    "mail": "camizamenfeld@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "alumno",
+    "id": 42
+  },
+  {
+    "usuario": "Camila Zamenfeld",
+    "contraseña": "1234",
+    "mail": "camizamenfeld@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "alumno",
+    "id": 43
+  },
+  {
+    "usuario": "Camila Zamenfeld",
+    "contraseña": "1234",
+    "mail": "camizamenfeld@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "alumno",
+    "id": 44
+  },
+  {
+    "usuario": "Camila Zamenfeld",
+    "contraseña": "1234",
+    "mail": "camizamenfeld@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "alumno",
+    "id": 45
+  },
+  {
+    "usuario": "Camila Zamenfeld",
+    "contraseña": "1234",
+    "mail": "camizamenfeld@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-08-27",
+    "rol": "alumno",
+    "id": 46
+  },
+  {
+    "usuario": "Camila Zamenfeld",
+    "contraseña": "1234",
+    "mail": "camizamenfeld@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "alumno",
+    "id": 47
+  },
+  {
+    "usuario": "cami",
+    "contraseña": "123",
+    "mail": "cami@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "0288-09-28",
+    "rol": "alumno",
+    "id": 48
   }
 ]

@@ -1,124 +1,120 @@
+/* -----------------------------------------------------
+   RESET
+----------------------------------------------------- */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  body {
-    background-color: #e6f7fb;
-    color: #000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 40px;
-  }
-  
-  .logo {
-    color: #6be3ae;
-    font-weight: 700;
-    font-style: italic;
-    font-size: 1.8rem;
-  }
-  
-  .perfil-container {
-    background-color: #e6f7fb;
-    display: flex;
-    align-items: center;
-    gap: 70px;
-    margin-top: 70px;
-    padding: 50px;
-    border-radius: 20px;
-  }
-  
-  .foto-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .foto {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    background-color: #d9d9d9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  
-  .foto img {
-    width: 80%;
-    height: auto;
-    opacity: 0.6;
-  }
-  
-  .btn-editar {
-    background-color: #a2e4d7;
-    border: none;
-    border-radius: 8px;
-    margin-top: 18px;
-    padding: 12px 30px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    cursor: pointer;
-    box-shadow: 3px 3px 5px #b3b3b3;
-    transition: 0.2s;
-  }
-  
-  .btn-editar:hover {
-    background-color: #90d6c8;
-  }
-  
-  .info-section {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  
-  .nombre {
-    font-size: 2rem;
-    margin-bottom: 15px;
-  }
-  
-  label {
-    font-weight: 500;
-    font-size: 1.1rem;
-  }
-  
-  input {
-    background-color: #fdf8f8;
-    border: none;
-    border-radius: 6px;
-    padding: 12px;
-    width: 340px;
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-  }
-  
-  .btn-confirmar {
-    align-self: flex-end;
-    background-color: #a2e4d7;
-    border: none;
-    border-radius: 8px;
-    padding: 12px 28px;
-    font-weight: 600;
-    font-style: italic;
-    font-size: 1.1rem;
-    cursor: pointer;
-    box-shadow: 3px 3px 5px #b3b3b3;
-    transition: 0.2s;
-  }
-  
-  .btn-confirmar:hover {
-    background-color: #90d6c8;
-  }
-  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #e6f7fb;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* -----------------------------------------------------
+   CONTENEDOR PRINCIPAL
+----------------------------------------------------- */
+.perfil-container {
+  background-color: #e6f7fb;
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  margin-top: 70px;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+/* -----------------------------------------------------
+   SECCIÓN DE FOTO
+----------------------------------------------------- */
+.foto-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#fotoPerfil {
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #d9d9d9;
+  border: 4px solid #5b6a88;
+}
+
+.btn-foto {
+  margin-top: 12px;
+  background-color: transparent;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #444;
+  text-decoration: underline;
+}
+
+.btn-foto:hover {
+  color: #000;
+}
+
+/* -----------------------------------------------------
+   SECCIÓN DE INFORMACIÓN
+----------------------------------------------------- */
+.info-section, 
+.datos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.nombre {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+label {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+input {
+  background-color: #fdf8f8;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  width: 340px;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+/* -----------------------------------------------------
+   BOTONES
+----------------------------------------------------- */
+.btn-editar,
+.btn-confirmar {
+  background-color: #a2e4d7;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px #b3b3b3;
+  transition: 0.2s;
+}
+
+.btn-editar:hover,
+.btn-confirmar:hover {
+  background-color: #90d6c8;
+}
+
+.acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
