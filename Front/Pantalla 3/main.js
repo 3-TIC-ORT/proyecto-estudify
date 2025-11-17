@@ -29,8 +29,7 @@ formRegistro.addEventListener('submit', (e) => {
     if (res.success === true) {
       alert('Registro exitoso');
 
-      localStorage.setItem('usuario', JSON.stringify(usuarioGuardar));
-      localStorage.setItem('nombreUsuario', inputNyA.value);
+      localStorage.setItem('usuarioActual', JSON.stringify(res.usuario || usuarioGuardar));
 
 
       if (usuarioGuardar.rol === 'profesor') {

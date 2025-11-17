@@ -1,67 +1,70 @@
-window.addEventListener("DOMContentLoaded", () => {
-  const inputFecha = document.getElementById("fecha");
-  const inputMail = document.getElementById("mail");
-  const nombreUsuario = document.querySelector(".nombre");
-  const btnEditar = document.querySelector(".btn-editar");
-  const btnConfirmar = document.querySelector(".btn-confirmar");
-  const fotoUsuario = document.querySelector(".foto img");
+const nombreUsuario = document.querySelector(".nombre");
+const inputMail = document.getElementById("mail");
+const inputFecha = document.getElementById("fecha");
+const fotoPerfil = document.getElementById("fotoPerfil");
+const inputFoto = document.getElementById("inputFoto");
+const btnCambiarFoto = document.getElementById("btnCambiarFoto");
+const btnEditar = document.querySelector(".btn-editar");
+const btnConfirmar = document.querySelector(".btn-confirmar");
 
- 
-  const usuarioData = JSON.parse(localStorage.getItem("usuarioActual"));
+let nuevaFotoBase64 = null;
 
-  if (!usuarioData) {
-    alert("No se encontró información del usuario. Iniciá sesión nuevamente.");
-    window.location.href = "../Pantalla 11/index.html";
-    return;
-  }
+let usuario = JSON.parse(localStorage.getItem("usuarioActual"));
+
+if (!usuario) {
+  alert("No se encontró un usuario activo. Iniciá sesión.");
+  window.location.href = "../Pantalla 11/index.html";
+}
+
+nombreUsuario.textContent = usuario.usuario;
+inputMail.value = usuario.mail;
+inputFecha.value = usuario.nacimiento;
+fotoPerfil.src = usuario.foto ?? "https://cdn-icons-png.flaticon.com/512/149/149071.png";
 
 
-  nombreUsuario.textContent = usuarioData.usuario || "Usuario";
-  inputFecha.value = usuarioData.nacimiento || "";
-  inputMail.value = usuarioData.mail || "";
-  fotoUsuario.src = usuarioData.foto || "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+btnEditar.addEventListener("click", () => {
+  inputMail.removeAttribute("readonly");
+  inputFecha.removeAttribute("readonly");
+  btnConfirmar.style.display = "block";
+  btnEditar.style.display = "none";
+  btnCambiarFoto.style.display = "block";
+});
 
-  
-  btnEditar.addEventListener("click", () => {
-    inputFecha.removeAttribute("readonly");
-    inputMail.removeAttribute("readonly");
-    btnConfirmar.style.display = "block";
-    btnEditar.style.display = "none";
-  });
+btnCambiarFoto.addEventListener("click", () => {
+  inputFoto.click();
+});
 
-  btnConfirmar.addEventListener("click", async () => {
-    const nuevosDatos = {
-      ...usuarioData,
-      mail: inputMail.value,
-      nacimiento: inputFecha.value,
-      foto: usuarioData.foto
-    };
+inputFoto.addEventListener("change", () => {
+  const archivo = inputFoto.files[0];
+  if (!archivo) return;
 
-    try {
-      const respuesta = await fetch("http://localhost:3003/actualizarPerfil", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(nuevosDatos),
-      });
+  const lector = new FileReader();
+  lector.onload = () => {
+    nuevaFotoBase64 = lector.result;
+    fotoPerfil.src = nuevaFotoBase64;
+  };
+  lector.readAsDataURL(archivo);
+});
 
-      const data = await respuesta.json();
+btnConfirmar.addEventListener("click", () => {
+  const datosActualizados = {
+    usuario: usuario.usuario,
+    mail: inputMail.value,
+    nacimiento: inputFecha.value,
+    foto: nuevaFotoBase64 ?? usuario.foto
+  };
 
-      if (data.ok) {
-        alert("Perfil actualizado correctamente");
-
-        localStorage.setItem("usuarioActual", JSON.stringify(data.usuario));
-
-        inputFecha.setAttribute("readonly", true);
-        inputMail.setAttribute("readonly", true);
-        btnConfirmar.style.display = "none";
-        btnEditar.style.display = "block";
-
-      } else {
-        alert("Error al actualizar perfil");
-      }
-    } catch (error) {
-      console.error("Error al conectar con el servidor:", error);
-      alert("No se pudo conectar con el servidor.");
+  triggerPOSTEvent("actualizarPerfil", datosActualizados, (res) => {
+    if (res.exito) {
+      alert("Perfil actualizado correctamente");
+      localStorage.setItem("usuarioActual", JSON.stringify(datosActualizados));
+      btnConfirmar.style.display = "none";
+      btnEditar.style.display = "block";
+      btnCambiarFoto.style.display = "none";
+      inputMail.setAttribute("readonly", true);
+      inputFecha.setAttribute("readonly", true);
+    } else {
+      alert("Error al actualizar: " + res.mensaje);
     }
   });
 });

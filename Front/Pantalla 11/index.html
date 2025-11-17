@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil - Studify</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil Usuario</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="perfil-container">
+    <h2 class="nombre"></h2>
 
-  <main class="perfil-container">
-    <div class="foto-section">
-      <div class="foto">
-        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Usuario">
-      </div>
+    <div class="foto-container">
+      <img id="fotoPerfil" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Foto usuario" />
+      <input type="file" id="inputFoto" accept="image/*" style="display:none" />
+      <button class="btn-foto" id="btnCambiarFoto">Cambiar foto</button>
+    </div>
+
+    <div class="datos-container">
+      <label>Email</label>
+      <input id="mail" type="email" readonly />
+
+      <label>Fecha de nacimiento</label>
+      <input id="fecha" type="date" readonly />
+    </div>
+
+    <div class="acciones">
       <button class="btn-editar">Editar</button>
+      <button class="btn-confirmar" style="display:none">Guardar cambios</button>
     </div>
+  </div>
 
-    <div class="info-section">
-      <h2 class="nombre">Gonzalo Mayer</h2>
-
-      <label for="fecha">Fecha de nacimiento:</label>
-      <input type="text" id="fecha" value="05/03/10" readonly>
-
-      <label for="mail">Mail:</label>
-      <input type="email" id="mail" value="gonzamayer@gmail.com" readonly>
-
-      <button class="btn-confirmar">Listo</button>
-    </div>
-  </main>
   <script src="main.js"></script>
-
 </body>
 </html>

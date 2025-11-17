@@ -24,7 +24,8 @@ function registrarUsuario(datos) {
 
   fs.writeFileSync("usuarios.json", JSON.stringify(usuarios, null, 2));
 
-  return { success: true, mensaje: "Usuario registrado correctamente." };
+  return { success: true, usuario: nuevoUsuario };
+
 }
 
 // log in
