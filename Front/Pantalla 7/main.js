@@ -19,9 +19,9 @@ function cargarMensajes() {
           return;
       }
 
-      data.mensajes.forEach(conv => {
+      data.mensajes.forEach(msg => {
 
-          const fecha = new Date(conv.fecha);
+          const fecha = new Date(msg.fecha);
           const fechaStr = fecha.toLocaleDateString("es-AR", {
               weekday: "long",
               day: "numeric",
@@ -35,16 +35,16 @@ function cargarMensajes() {
           const div = document.createElement("div");
           div.classList.add("mensaje");
           div.innerHTML = `
-              <img src="https://randomuser.me/api/portraits/${conv.profesor.endsWith('a') ? 'women' : 'men'}/${Math.floor(Math.random() * 50)}.jpg" alt="foto">
+              <img src="https://randomuser.me/api/portraits/${msg.profesor.endsWith('a') ? 'women' : 'men'}/${Math.floor(Math.random() * 50)}.jpg" alt="foto">
               <div class="info">
-                  <h3 class="nombre">${conv.profesor}</h3>
+                  <h3 class="nombre">${msg.profesor}</h3>
                   <p class="fecha">${fechaStr} a las ${horaStr}</p>
-                  <p class="texto">${conv.contenido}</p>
+                  <p class="texto">${msg.texto}</p>
               </div>
           `;
 
           div.addEventListener("click", () => {
-              window.location.href = `chat.html?profesor=${encodeURIComponent(conv.profesor)}`;
+              window.location.href = `chat.html?profesor=${encodeURIComponent(msg.profesor)}`;
           });
 
           contenedor.appendChild(div);

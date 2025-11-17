@@ -1,7 +1,7 @@
 [
     {
     "identificadorProfesor": "Luu Parrondo",
-    "identificadroAlumno":"Juana",
+    "identificadorAlumno":"Juana",
     "mensajes":[
         {"perfil": "alumno", "texto": "hola"},
         {"perfil": "alumno", "texto": "tengo una pregunta"},
@@ -10,7 +10,7 @@
     },
     {
         "identificadorProfesor": "",
-        "identificadroAlumno":"",
+        "identificadorAlumno":"",
         "mensajes":[
             {"perfil": "alumno", "texto": "hola"}
             ]

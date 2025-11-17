@@ -183,42 +183,63 @@ subscribePOSTEvent("actualizarPerfil", (data) => {
   return { ok: true, usuario };
 });
 
-//mensajes
+// mensajes
 const mensajesPath = path.resolve(__dirname, './mensajes.json');
+
 if (!fs.existsSync(mensajesPath)) {
     fs.writeFileSync(mensajesPath, JSON.stringify([]));
 }
 
+// para guardarlos
 subscribePOSTEvent("enviarMensaje", (data) => {
     try {
-        const { profesor, usuario, contenido, perfil } = data;
+        const {
+            profesor,      
+            usuario,       
+            texto,     
+            perfil
+        } = data;
 
-        if (!profesor || !usuario || !contenido) {
-            return { success: false, message: "Faltan datos para guardar el mensaje" };
+        if (!profesor || !usuario || !texto || !perfil) {
+            return { success: false, message: "Faltan datos" };
         }
 
-        const mensajes = JSON.parse(fs.readFileSync(mensajesPath, "utf-8"));
+        let conversaciones = JSON.parse(fs.readFileSync(mensajesPath, "utf-8"));
 
-        const nuevoMensaje = {
-            id: mensajes.length + 1,
-            profesor,
-            usuario,
-            contenido,
+        // buscar conversación 
+        let conv = conversaciones.find(
+            c =>
+                c.identificadorProfesor === profesor &&
+                c.identificadroAlumno === usuario
+        );
+
+        // si no existe que se cree
+        if (!conv) {
+            conv = {
+                identificadorProfesor: profesor,
+                identificadroAlumno: usuario,
+                mensajes: []
+            };
+            conversaciones.push(conv);
+        }
+
+        // agregar mensaje
+        conv.mensajes.push({
             perfil,
-            fecha: new Date().toISOString()
-        };
+            texto: texto
+        });
 
-        mensajes.push(nuevoMensaje);
+        fs.writeFileSync(mensajesPath, JSON.stringify(conversaciones, null, 2));
 
-        fs.writeFileSync(mensajesPath, JSON.stringify(mensajes, null, 2));
-
-        return { success: true, message: "Mensaje guardado", mensaje: nuevoMensaje };
+        return { success: true, message: "Mensaje guardado" };
 
     } catch (err) {
         return { success: false, message: err.message };
     }
 });
 
+
+// obtener msjs
 subscribeGETEvent("mensajesPorProfesor", (params) => {
     try {
         const { profesor, usuario } = params;
@@ -227,13 +248,18 @@ subscribeGETEvent("mensajesPorProfesor", (params) => {
             return { success: false, message: "Faltan parámetros" };
         }
 
-        const mensajes = JSON.parse(fs.readFileSync(mensajesPath, "utf-8"));
+        const conversaciones = JSON.parse(fs.readFileSync(mensajesPath, "utf-8"));
 
-        const filtrados = mensajes.filter(m =>
-            m.profesor === profesor && m.usuario === usuario
+        const conv = conversaciones.find(
+            c =>
+                c.identificadorProfesor === profesor &&
+                c.identificadroAlumno === usuario
         );
 
-        return { success: true, mensajes: filtrados };
+        return {
+            success: true,
+            mensajes: conv ? conv.mensajes : []
+        };
 
     } catch (err) {
         return { success: false, message: err.message };
