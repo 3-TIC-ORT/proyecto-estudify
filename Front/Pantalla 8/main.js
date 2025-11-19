@@ -1,83 +1,70 @@
 const tituloMensaje = document.querySelector('.titulo');
-const textareaMensaje = document.getElementById('textoMensaje'); 
-const formulario = document.querySelector('.formulario'); 
-const historialMensajes = document.getElementById('historialMensajes'); 
+const textareaMensaje = document.getElementById('textoMensaje');
+const formulario = document.querySelector('.formulario');
+const historialMensajes = document.getElementById('historialMensajes');
 
 let nombreProfesor = null;
 
 function setProfesorDesdeURL() {
     const params = new URLSearchParams(window.location.search);
-    nombreProfesor = params.get('profesor');
+    nombreProfesor = params.get("profesor");
 
-    if (!nombreProfesor) {
-        tituloMensaje.textContent = "Enviar mensaje";
-        return;
-    }
+    if (!nombreProfesor) return;
 
-    tituloMensaje.textContent = `Enviar mensaje a ${decodeURIComponent(nombreProfesor)}`;
-
-    obtenerMensajes(nombreProfesor);
+    tituloMensaje.textContent = `Chat con ${decodeURIComponent(nombreProfesor)}`;
+    obtenerMensajes();
 }
 
-async function enviarMensaje(event) {
+function enviarMensaje(event) {
     event.preventDefault();
 
     const mensaje = textareaMensaje.value.trim();
     if (mensaje === "") return;
 
-    const nuevoMensaje = document.createElement('div');
-    nuevoMensaje.classList.add('mensaje-usuario');
-    nuevoMensaje.textContent = mensaje;
-    historialMensajes.appendChild(nuevoMensaje);
-
+    agregarMensaje(mensaje, "alumno");
     textareaMensaje.value = "";
-    historialMensajes.scrollTop = historialMensajes.scrollHeight;
 
-    postEvent("enviarMensaje",
+    postEvent(
+        "enviarMensaje",
         {
             profesor: nombreProfesor,
             usuario: localStorage["nombreUsuario"],
-            contenido: mensaje,
-            perfil: "Alumno"
+            texto: mensaje,
+            perfil: "alumno"
         },
-        (data) => {
-            if (!data.success) {
-                console.error("Error guardando mensaje:", data);
-            }
+        (res) => {
+            if (!res.success) console.error("Error guardando mensaje:", res);
         }
     );
 }
 
-function obtenerMensajes(profesor) {
+function agregarMensaje(texto, perfil) {
+    const div = document.createElement("div");
+    div.classList.add(perfil === "profesor" ? "mensaje-profesor" : "mensaje-usuario");
+    div.textContent = texto;
+    historialMensajes.appendChild(div);
+    historialMensajes.scrollTop = historialMensajes.scrollHeight;
+}
 
+function obtenerMensajes() {
     getEvent(
         "mensajesPorProfesor",
         {
-            profesor: profesor,
+            profesor: nombreProfesor,
             usuario: localStorage["nombreUsuario"]
         },
-        (data) => {
+        (res) => {
+            if (!res.success) return;
 
-            if (!data.success) {
-                console.error("Error obteniendo mensajes:", data);
-                return;
-            }
+            historialMensajes.innerHTML = "";
 
-            historialMensajes.innerHTML = ""; 
-
-            data.mensajes.forEach(m => {
-                const div = document.createElement('div');
-                div.classList.add('mensaje-usuario');
-                div.textContent = m.contenido;
-                historialMensajes.appendChild(div);
+            res.mensajes.forEach(m => {
+                agregarMensaje(m.texto, m.perfil);
             });
         }
     );
 }
 
-if (formulario) {
-    formulario.addEventListener('submit', enviarMensaje);
-}
-
+formulario.addEventListener("submit", enviarMensaje);
 setProfesorDesdeURL();
 

@@ -183,89 +183,87 @@ subscribePOSTEvent("actualizarPerfil", (data) => {
   fs.writeFileSync(filePath, JSON.stringify(usuarios, null, 2), 'utf-8');
   return { ok: true, usuario };
 });
+// ---------------------------------------------
+// GET: Lista de conversaciones de un alumno
+// ---------------------------------------------
+subscribeGETEvent("listaConversaciones", (data) => {
+  const { usuario } = data;
 
-// mensajes
-const mensajesPath = path.resolve(__dirname, './mensajes.json');
+  const todas = JSON.parse(fs.readFileSync("./mensajes.json", "utf8"));
 
-if (!fs.existsSync(mensajesPath)) {
-    fs.writeFileSync(mensajesPath, JSON.stringify([]));
-}
+  // Filtrar conversaciones donde el alumno participa
+  const convAlumno = todas.filter(
+      c => c.identificadorAlumno === usuario
+  );
 
-// para guardarlos
-subscribePOSTEvent("enviarMensaje", (data) => {
-    try {
-        const {
-            profesor,      
-            usuario,       
-            texto,     
-            perfil
-        } = data;
+  // Armar respuesta
+  const resultado = convAlumno.map(c => {
+      const ultimo = c.mensajes[c.mensajes.length - 1];
 
-        if (!profesor || !usuario || !texto || !perfil) {
-            return { success: false, message: "Faltan datos" };
-        }
+      return {
+          profesor: c.identificadorProfesor,
+          ultimoMensaje: ultimo.texto,
+          fecha: Date.now()
+      };
+  });
 
-        let conversaciones = JSON.parse(fs.readFileSync(mensajesPath, "utf-8"));
-
-        // buscar conversación 
-        let conv = conversaciones.find(
-            c =>
-                c.identificadorProfesor === profesor &&
-                c.identificadroAlumno === usuario
-        );
-
-        // si no existe que se cree
-        if (!conv) {
-            conv = {
-                identificadorProfesor: profesor,
-                identificadroAlumno: usuario,
-                mensajes: []
-            };
-            conversaciones.push(conv);
-        }
-
-        // agregar mensaje
-        conv.mensajes.push({
-            perfil,
-            texto: texto
-        });
-
-        fs.writeFileSync(mensajesPath, JSON.stringify(conversaciones, null, 2));
-
-        return { success: true, message: "Mensaje guardado" };
-
-    } catch (err) {
-        return { success: false, message: err.message };
-    }
+  return { success: true, conversaciones: resultado };
 });
 
 
-// obtener msjs
-subscribeGETEvent("mensajesPorProfesor", (params) => {
-    try {
-        const { profesor, usuario } = params;
+// ---------------------------------------------
+// GET: Obtener mensajes entre un alumno y un profesor
+// ---------------------------------------------
+subscribeGETEvent("mensajesConversacion", (data) => {
+  const { profesor, alumno } = data;
 
-        if (!profesor || !usuario) {
-            return { success: false, message: "Faltan parámetros" };
-        }
+  const todas = JSON.parse(fs.readFileSync("./mensajes.json", "utf8"));
 
-        const conversaciones = JSON.parse(fs.readFileSync(mensajesPath, "utf-8"));
+  const conversacion = todas.find(
+      c =>
+          c.identificadorProfesor === profesor &&
+          c.identificadorAlumno === alumno
+  );
 
-        const conv = conversaciones.find(
-            c =>
-                c.identificadorProfesor === profesor &&
-                c.identificadroAlumno === usuario
-        );
+  if (!conversacion)
+      return { success: true, mensajes: [] };
 
-        return {
-            success: true,
-            mensajes: conv ? conv.mensajes : []
-        };
-
-    } catch (err) {
-        return { success: false, message: err.message };
-    }
+  return { success: true, mensajes: conversacion.mensajes };
 });
+
+
+// ---------------------------------------------
+// POST: Guardar mensaje nuevo
+// ---------------------------------------------
+subscribePOSTEvent("guardarMensaje", (data) => {
+  const mensajes = JSON.parse(fs.readFileSync("./mensajes.json", "utf8"));
+
+  const { identificadorProfesor, identificadorAlumno, perfil, texto } = data;
+
+  let conversacion = mensajes.find(
+      c =>
+          c.identificadorProfesor === identificadorProfesor &&
+          c.identificadorAlumno === identificadorAlumno
+  );
+
+  if (!conversacion) {
+      conversacion = {
+          identificadorProfesor,
+          identificadorAlumno,
+          mensajes: []
+      };
+      mensajes.push(conversacion);
+  }
+
+  conversacion.mensajes.push({ perfil, texto });
+
+  fs.writeFileSync("./mensajes.json", JSON.stringify(mensajes, null, 2));
+
+  return { success: true };
+});
+
 
 
 startServer();
+
+

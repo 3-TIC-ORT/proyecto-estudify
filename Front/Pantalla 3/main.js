@@ -1,3 +1,19 @@
+// POPUP
+function mostrarPopup(mensaje, callback = null) {
+  const popup = document.getElementById('popup');
+  const texto = document.getElementById('popupMensaje');
+  const btn = document.getElementById('popupBtn');
+
+  texto.textContent = mensaje;
+  popup.classList.remove('hidden');
+
+  btn.onclick = () => {
+    popup.classList.add('hidden');
+    if (callback) callback();
+  };
+}
+
+// FORMULARIO
 const formRegistro = document.getElementById('formRegistro');
 
 const inputNyA = document.getElementById('nombreApellido');
@@ -27,18 +43,18 @@ formRegistro.addEventListener('submit', (e) => {
     console.log('Respuesta del servidor (registro):', res);
 
     if (res.success === true) {
-      alert('Registro exitoso');
+      mostrarPopup('Registro exitoso', () => {
+        localStorage.setItem('usuarioActual', JSON.stringify(res.usuario || usuarioGuardar));
 
-      localStorage.setItem('usuarioActual', JSON.stringify(res.usuario || usuarioGuardar));
+        if (usuarioGuardar.rol === 'profesor') {
+          window.location.href = '../Pantalla 7/index.html';
+        } else {
+          window.location.href = '../Pantalla 4/index.html';
+        }
+      });
 
-
-      if (usuarioGuardar.rol === 'profesor') {
-        window.location.href = '../Pantalla 7/index.html';
-      } else {
-        window.location.href = '../Pantalla 4/index.html';
-      }
     } else {
-      alert('Error al registrar usuario: ' + (res.mensaje || 'ver consola'));
+      mostrarPopup('Error al registrar usuario: ' + (res.mensaje || 'ver consola'));
     }
   });
 });

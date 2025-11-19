@@ -265,5 +265,68 @@
     "nacimiento": "0288-09-28",
     "rol": "alumno",
     "id": 48
+  },
+  {
+    "usuario": "cami",
+    "contraseña": "1234",
+    "mail": "cami@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2209-07-27",
+    "rol": "alumno",
+    "id": 49
+  },
+  {
+    "usuario": "cami",
+    "contraseña": "1234",
+    "mail": "cami@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "alumno",
+    "id": 50
+  },
+  {
+    "usuario": "cami",
+    "contraseña": "1234",
+    "mail": "cami@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "alumno",
+    "id": 51
+  },
+  {
+    "usuario": "Camila Zamenfeld",
+    "contraseña": "1234",
+    "mail": "camizameneld@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "alumno",
+    "id": 52
+  },
+  {
+    "usuario": "Camila Zamenfeld",
+    "contraseña": "1234",
+    "mail": "camizameneld@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "alumno",
+    "id": 53
+  },
+  {
+    "usuario": "ca",
+    "contraseña": "cas4w",
+    "mail": "carolinacuevas@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "3665-04-25",
+    "rol": "alumno",
+    "id": 54
+  },
+  {
+    "usuario": "ca",
+    "contraseña": "1234",
+    "mail": "carolinacuevas@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "3665-04-25",
+    "rol": "alumno",
+    "id": 55
   }
 ]

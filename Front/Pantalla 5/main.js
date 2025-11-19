@@ -32,7 +32,6 @@ const baseDeDatosProfesores = [
     id: 4,
     nombre: "Martina Rodriguez",
     imagen: "https://img.freepik.com/foto-gratis/retrato-mujer-joven-sonriente-posando-pared-blanca_231208-13436.jpg",
-
     info: "Martina es experta en Geometría y Trigonometría. Tiene una habilidad especial para hacer visuales los problemas y que puedas entenderlos.",
     reseñas: [
       { usuario: "Agustina B.", comentario: "¡La mejor! Súper didáctica." }
@@ -109,7 +108,6 @@ async function obtenerResenasDesdeServidor(profesorId) {
   return [];
 }
 
-
 function cargarGaleria() {
   galeriaProfesores.innerHTML = "";
   baseDeDatosProfesores.forEach(profesor => {
@@ -160,6 +158,19 @@ function mostrarListaProfesores() {
   pantalla5.classList.replace('pantalla-oculta', 'pantalla-visible');
 }
 
+/*  ⚠️ AQUÍ SE CAMBIÓ EL POPUP  */
+function crearPopup(mensaje) {
+  const popupMini = document.getElementById("popup-mini");
+  popupMini.textContent = mensaje;
+
+  popupMini.classList.add("show");
+
+  setTimeout(() => {
+    popupMini.classList.remove("show");
+  }, 2000);
+}
+/*  FIN POPUP NUEVO  */
+
 async function manejarEnvioReseña() {
   const texto = document.querySelector('#textoReseña').value.trim();
   const nombre = document.getElementById('detalle-nombre').textContent;
@@ -181,9 +192,9 @@ async function manejarEnvioReseña() {
 
   document.querySelector('#textoReseña').value = '';
   mostrarDetalleProfesor(profesor.id);
-  alert("¡Reseña enviada con éxito!");
-}
 
+  crearPopup("✔ Reseña enviada con éxito");
+}
 
 function añadirListenersACards() {
   document.querySelectorAll('.profesor').forEach(card => {
@@ -194,7 +205,6 @@ function añadirListenersACards() {
 btnVolver.addEventListener('click', mostrarListaProfesores);
 btnEnviarReseña.addEventListener('click', manejarEnvioReseña);
 
-
 cargarGaleria();
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -202,14 +212,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const iconoUsuario = document.querySelector(".icono.usuario");
 
   if (iconoMensajes) {
-      iconoMensajes.addEventListener("click", () => {
-          window.location.href = "../pantalla 7/index.html";
-      });
+    iconoMensajes.addEventListener("click", () => {
+      window.location.href = "../Pantalla 7/index.html";
+    });
   }
 
   if (iconoUsuario) {
-      iconoUsuario.addEventListener("click", () => {
-          window.location.href = "../pantalla 11/index.html";
-      });
+    iconoUsuario.addEventListener("click", () => {
+      window.location.href = "../Pantalla 11/index.html";
+    });
   }
 });
+
+

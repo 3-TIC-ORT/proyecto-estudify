@@ -7,27 +7,38 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="perfil-container">
-    <h2 class="nombre"></h2>
 
+  <div class="perfil-container">
+
+    <!-- FOTO -->
     <div class="foto-container">
       <img id="fotoPerfil" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Foto usuario" />
       <input type="file" id="inputFoto" accept="image/*" style="display:none" />
       <button class="btn-foto" id="btnCambiarFoto">Cambiar foto</button>
     </div>
 
+    <!-- DATOS -->
     <div class="datos-container">
+
+      <h2 class="nombre"></h2>
+
       <label>Email</label>
       <input id="mail" type="email" readonly />
 
       <label>Fecha de nacimiento</label>
       <input id="fecha" type="date" readonly />
+
+      <label>Rol</label>
+      <input id="rol" type="text" readonly />
+
     </div>
 
+    <!-- BOTONES -->
     <div class="acciones">
       <button class="btn-editar">Editar</button>
       <button class="btn-confirmar" style="display:none">Guardar cambios</button>
     </div>
+
   </div>
 
   <script src="main.js"></script>
