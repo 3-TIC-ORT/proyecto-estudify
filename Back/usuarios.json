@@ -328,5 +328,77 @@
     "nacimiento": "3665-04-25",
     "rol": "alumno",
     "id": 55
+  },
+  {
+    "usuario": "Camila Zamenfled",
+    "contraseña": "1234",
+    "mail": "camizamenfeld@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "alumno",
+    "id": 56
+  },
+  {
+    "usuario": "gala",
+    "contraseña": "12345",
+    "mail": "gala@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2010-03-05",
+    "rol": "profesor",
+    "id": 57
+  },
+  {
+    "usuario": "Camila Zamenfeld",
+    "contraseña": "1234",
+    "mail": "camizamenfeld@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "alumno",
+    "id": 58
+  },
+  {
+    "usuario": "cami",
+    "contraseña": "1234",
+    "mail": "cami@gmail.com",
+    "telefono": "12345679",
+    "nacimiento": "7222-08-27",
+    "rol": "alumno",
+    "id": 59
+  },
+  {
+    "usuario": "Camila Zamenfeld",
+    "contraseña": "1234",
+    "mail": "camizamenfeld@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "alumno",
+    "id": 60
+  },
+  {
+    "usuario": "Camila Zamenfeld",
+    "contraseña": "1234",
+    "mail": "camizamenfeld@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "profesor",
+    "id": 61
+  },
+  {
+    "usuario": "Camila Zamenfeld",
+    "contraseña": "a",
+    "mail": "camizamenfeld@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "profesor",
+    "id": 62
+  },
+  {
+    "usuario": "Camila Zamenfeld",
+    "contraseña": "artrfcvgfhbjnm",
+    "mail": "camizamenfeld@gmail.com",
+    "telefono": "12345678",
+    "nacimiento": "2009-07-27",
+    "rol": "alumno",
+    "id": 63
   }
 ]

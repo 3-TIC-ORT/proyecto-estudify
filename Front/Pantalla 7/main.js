@@ -4,7 +4,7 @@ function cargarMensajes() {
     const usuarioActual = localStorage.getItem("nombreUsuario");
 
     if (!usuarioActual) {
-        contenedor.innerHTML = "<p>No hay usuario guardado.</p>";
+        contenedor.innerHTML = "<p>Tus chats.</p>";
         return;
     }
 
